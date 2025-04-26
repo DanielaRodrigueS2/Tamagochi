@@ -1,22 +1,11 @@
 import { useState } from "react";
+import Home from "./pages/Home";
+import './App.css'
 
 function App(){
   
-  const [msg1, setmsg1] = useState('Botão legal abaixo');
-  
-  const mudarMensagem = () =>{
-    setmsg1('Botão atacado')
-
-  };
-
   return(
-    <div>
-      <h1>Site Abacaxi</h1>
-      <h1>{msg1}</h1>
-      <button onClick={mudarMensagem}>Não clique em mim</button>
-    </div>
-
-
+    <Home></Home>
   );
 
 }
