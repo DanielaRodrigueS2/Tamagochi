@@ -1,0 +1,23 @@
+.Botao{
+    margin: 10px;
+    padding: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d9eaeb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.Botao:hover{
+    background: #829aa3;
+
+}
+
+.Botao:active{
+    background: #829aa3;
+    top: 5px;
+}

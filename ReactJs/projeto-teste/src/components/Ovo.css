@@ -1,0 +1,14 @@
+.Ovo_normal{
+    display: flex;
+    width: 256px;
+    height: auto;
+    image-rendering: pixelated;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.Ovo_normal:active{
+    top: 5px;
+    right: 2px;
+    left: 1px;
+}
