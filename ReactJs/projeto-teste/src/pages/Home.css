@@ -35,6 +35,7 @@
     border-top-width: 0px;
     border-color: black;
     border-style: solid;
+    flex-direction: column;
 
 }
 

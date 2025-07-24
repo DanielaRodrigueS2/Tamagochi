@@ -1,0 +1,17 @@
+.Status{
+    display: flex;
+    width: 80%;
+    height: 20%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.barras{
+    display: flex;
+    width: 30%;
+    height: 20%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

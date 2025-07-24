@@ -1,6 +1,7 @@
 import './Home.css'
 import Botao from '../components/Botao'
 import Ovo from '../components/Ovo';
+import Status from '../components/Status';
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
 
 
@@ -15,6 +16,7 @@ function Home(){
             </div>
 
             <div className='tela'>
+                <Status></Status>
                 <Ovo></Ovo>
             </div>
 
