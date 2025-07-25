@@ -1,6 +1,7 @@
 import './Ovo.css'
 import Ovo_normal from "../sprites/Ovo_normal.gif"
 import Ovo_rachando from "../sprites/Ovo_rachando.gif"
+import BichoNormal from "../sprites/BichoNormal.gif"
 import { useState } from 'react';
 
 function Ovo(){
@@ -13,10 +14,17 @@ function Ovo(){
         const contagem = cliques + 1;
         setCliques(contagem);
 
-        if (contagem >= 25){
-            setSprite(Ovo_rachando)
-            
+        if (contagem >= 25 && sprite !== BichoNormal){
+            setSprite(Ovo_rachando);
+
+            setTimeout(() => {
+                nascimento()
+            }, "3000");
         }
+    }
+
+    const nascimento = () =>{
+        setSprite(BichoNormal)
     }
 
     return(

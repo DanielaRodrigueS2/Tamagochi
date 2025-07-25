@@ -13,15 +13,15 @@ function Status(props){
     return(
         <div className='Status'>
             <div className='barras'>
-                <FaFish size={18}/>
+                <FaFish size={19} className='Icon'/>
                 <progress className='barra' value={fome} max='100'></progress>
             </div>
             <div className='barras'>
-                <SlEnergy size={18}/>
+                <SlEnergy size={19} className='Icon'/>
                 <progress className='barra' value={energia} max='100'></progress>
             </div>
             <div className='barras'>
-                <FaGrin size={18}/>
+                <FaGrin size={19} className='Icon'/>
                 <progress className='barra' value={alegria} max='100'></progress>
             </div>
         </div>
