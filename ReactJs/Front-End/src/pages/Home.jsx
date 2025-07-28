@@ -15,7 +15,7 @@ function Home(){
             <div className='principal'>
                 <div className='menuTop'> 
                     <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
-                    <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comida')}/>
+                    <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comidas')}/>
                     <Botao Icon={FaFutbol} onClick={()=> setBotaoApertado('Brinquedos')}/>
                 </div>
 
