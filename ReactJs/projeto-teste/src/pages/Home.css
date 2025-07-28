@@ -1,6 +1,15 @@
+.estrutura{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+}
+
 .principal{
     display: flex;
-    width: 100%;
+    width: 70%;
     height: 100%;
     background: rgb(243, 248, 243);
     align-items: center;
@@ -11,7 +20,7 @@
 
 .menuTop{
     display: flex;
-    width: 40%;
+    width: 60%;
     height: 15%;
     background-color: rgb(139, 206, 218);
     align-items: center;
@@ -26,7 +35,7 @@
 
 .tela{
     display: flex;
-    width: 40%;
+    width: 60%;
     height: 40%;
     background-color: rgb(84, 174, 190);
     align-items: center;
@@ -41,7 +50,7 @@
 
 .menuBottom{
     display: flex;
-    width: 40%;
+    width: 60%;
     height: 15%;
     background-color: rgb(139, 206, 218);
     align-items: center;
