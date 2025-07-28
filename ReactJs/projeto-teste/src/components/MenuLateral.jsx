@@ -5,7 +5,7 @@ function MenuLateral(props){
     return(
         <div className='Principal'>
             <div className='NomeMenu'>
-                <h2>{}</h2>
+                <h2>{props.menu}</h2>
             </div>
             <div className='Elementos'>
 

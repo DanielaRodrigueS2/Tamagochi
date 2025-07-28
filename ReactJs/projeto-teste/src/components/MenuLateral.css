@@ -19,6 +19,8 @@
     border-radius: 20px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    align-items: center;
+    justify-content: center;
 }
 
 .Elementos{

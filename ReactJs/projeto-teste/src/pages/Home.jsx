@@ -4,17 +4,19 @@ import Ovo from '../components/Ovo';
 import Status from '../components/Status';
 import MenuLateral from '../components/MenuLateral';
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
-
+import { useState } from 'react';
 
 function Home(){
+
+    const [botaoApertado, setBotaoApertado] = useState('')
 
     return(
         <div className='estrutura'>
             <div className='principal'>
                 <div className='menuTop'> 
-                    <Botao Icon={FaEgg} onClick={()=> console.log('Apertou botao')}/>
-                    <Botao Icon={FaHamburger} onClick={()=> console.log('Apertou botao')}/>
-                    <Botao Icon={FaFutbol} onClick={()=> console.log('Apertou botao')}/>
+                    <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
+                    <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comida')}/>
+                    <Botao Icon={FaFutbol} onClick={()=> setBotaoApertado('Brinquedos')}/>
                 </div>
 
                 <div className='tela'>
@@ -23,14 +25,14 @@ function Home(){
                 </div>
 
                 <div className='menuBottom'>
-                    <Botao Icon={FaBath} onClick={()=> console.log('Apertou botao')}/>
-                    <Botao Icon={FaBed} onClick={()=> console.log('Apertou botao')}/>
-                    <Botao Icon={FaGamepad} onClick={()=> console.log('Apertou botao')}/>
+                    <Botao Icon={FaBath} onClick={()=> setBotaoApertado('Banho')}/>
+                    <Botao Icon={FaBed} onClick={()=> setBotaoApertado('Dormir')}/>
+                    <Botao Icon={FaGamepad} onClick={()=> setBotaoApertado('Jogos')}/>
                 </div>
 
             </div>
 
-            <MenuLateral></MenuLateral>
+            <MenuLateral menu = {botaoApertado}></MenuLateral>
         </div>
     )
 
