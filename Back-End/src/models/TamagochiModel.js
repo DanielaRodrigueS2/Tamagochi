@@ -1,6 +1,6 @@
-const moongoose = require('moongose');
+const mongoose = require('mongoose')
 
-const tamagochiData = new moongoose.Schema({
+const tamagochiData = new mongoose.Schema({
     nome: String,
     fome: Number,
     energia: Number,
@@ -8,6 +8,4 @@ const tamagochiData = new moongoose.Schema({
     sprite: String
 });
 
-const Tamagochi = moongoose.Model('Tamagochi', tamagochiData);
-
-module.exports = Tamagochi;
+module.exports  = mongoose.Model('Tamagochi', tamagochiData);
