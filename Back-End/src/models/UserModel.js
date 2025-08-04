@@ -7,10 +7,16 @@ const userData = new mongoose.Schema({
         required: true,
         unique: true
     },
+    email:{
+        type: String,
+        required: true,
+        unique: true
+    },
     senha:{
         type: String,
         required: true
-    }
+    },
+    tamagochi: {type: mongoose.Schema.Types.ObjectId, ref: 'Tamagochi'}
 
 })
 
