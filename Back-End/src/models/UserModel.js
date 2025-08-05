@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bycrpt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const userData = new mongoose.Schema({
     nome:{
@@ -16,15 +16,15 @@ const userData = new mongoose.Schema({
         type: String,
         required: true
     },
-    tamagochi: {type: mongoose.Schema.Types.ObjectId, ref: 'Tamagochi'}
+    tamagochi: {type: mongoose.Schema.Types.ObjectId, ref: 'Tamagochi', default: null}
 
 })
 
 userData.pre('save', async function(next) {
     if(!this.isModified('senha')) return next();
     try{
-        const salt = await bycrpt.genSalt(10);
-        this.senha= await bycrpt.hash(this.senha, salt);
+        const salt = await bcrypt.genSalt(10);
+        this.senha= await bcrypt.hash(this.senha, salt);
         next();
     }
     catch(error){
@@ -33,7 +33,7 @@ userData.pre('save', async function(next) {
 }) 
 
 userData.methods.compararSenha = function(senhaInserida){
-    return bycrpt.compare(senhaInserida, this.senha);
+    return bcrypt.compare(senhaInserida, this.senha);
 };
 
 module.exports = mongoose.model('User', userData)

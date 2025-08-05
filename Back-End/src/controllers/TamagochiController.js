@@ -1,11 +1,15 @@
 const Tamagochi = require('../models/TamagochiModel');
+const User = require('../models/UserModel');
 
 exports.createTamagochi = async (req,res) =>{
     const {nome, fome, energia, felicidade, sprite} = req.body;
+    const userId = req.user.id;
 
     try{
-        const tamagochi = new Tamagochi({nome, fome, energia, felicidade, sprite});
+        const tamagochi = new Tamagochi({nome, fome, energia, felicidade, sprite, responsavel: userId});
         const tamagochiCriado = await tamagochi.save();
+
+        await User.findByIdAndUpdate(userId, {tamagochi: tamagochiCriado._id});
         res.status(201).json(tamagochiCriado);
     }
     catch(erorr){
@@ -15,7 +19,7 @@ exports.createTamagochi = async (req,res) =>{
 
 exports.getAllTamagochis = async (req, res) =>{
     try{
-        const tamagochis = await Tamagochi.find();
+        const tamagochis = await Tamagochi.findById();
         res.json(tamagochis)
     }
     catch(error){
@@ -26,7 +30,7 @@ exports.getAllTamagochis = async (req, res) =>{
 exports.getTamagochiById = async (req, res) =>{
     const id = req.params.id;
     try{
-        const tamagochi = await Tamagochi.find(id);
+        const tamagochi = await Tamagochi.findById(id);
         if(!tamagochi){
             return res.status(404).json({error: 'Tamagochi nao foi encontrado'});
         }
@@ -39,7 +43,7 @@ exports.getTamagochiById = async (req, res) =>{
 }
 
 exports.updateTamagochi = async (req, res) =>{
-    const id = req.params;
+    const id = req.params.id;
     const {nome, fome, energia, felicidade, sprite} = req.body;
 
     try{
@@ -56,7 +60,7 @@ exports.updateTamagochi = async (req, res) =>{
 }
 
 exports.deleteTamagochi = async (req, res) =>{
-    const id = req.params
+    const id = req.params.id;
 
     try{
         const tamagochiApagado = await Tamagochi.findByIdAndRemove(id);

@@ -9,4 +9,4 @@ const tamagochiData = new mongoose.Schema({
     responsavel: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
-module.exports  = mongoose.Model('Tamagochi', tamagochiData);
+module.exports  = mongoose.model('Tamagochi', tamagochiData);
