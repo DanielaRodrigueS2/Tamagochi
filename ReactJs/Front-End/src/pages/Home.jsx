@@ -3,6 +3,7 @@ import Botao from '../components/Botao'
 import Ovo from '../components/Ovo';
 import Status from '../components/Status';
 import MenuLateral from '../components/MenuLateral';
+import Login from '../components/Login';
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
 import { useState } from 'react';
 
@@ -33,7 +34,11 @@ function Home(){
             </div>
 
             <MenuLateral menu = {botaoApertado}></MenuLateral>
+
+            <Login></Login>
+            
         </div>
+        
     )
 
 }
