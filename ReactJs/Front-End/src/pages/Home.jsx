@@ -10,6 +10,13 @@ import { useState } from 'react';
 function Home(){
 
     const [botaoApertado, setBotaoApertado] = useState('')
+    const [token, setToken] = useState(null);
+
+    //Função para armazenar o token no local storage
+    const armazenaToken = (token) =>{
+        localStorage.setItem('token', token);
+        setToken(token);
+    }
 
     return(
         <div className='estrutura'>
@@ -35,7 +42,7 @@ function Home(){
 
             <MenuLateral menu = {botaoApertado}></MenuLateral>
 
-            <Login></Login>
+            <Login armazenaToken={armazenaToken}></Login>
             
         </div>
         
