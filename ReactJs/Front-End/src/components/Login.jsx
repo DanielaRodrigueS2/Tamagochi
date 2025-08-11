@@ -5,10 +5,10 @@ function Login(props){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const {erro, setErro} = useState('abacaxi');
+    const [erro, setErro] = useState('abacaxi');
 
     const handleSubmit = async (e) =>{
-        e.preventDefaut();
+        e.preventDefault();
         
         const dadosUser = {
             email: email,
@@ -16,7 +16,10 @@ function Login(props){
         }
         try{
 
-            const resposta = await fetch('http://localhost:3000/login', {method: 'POST' ,body: JSON.stringify(dadosUser)});
+            const resposta = await fetch('http://localhost:3000/login', {
+                method: 'POST' ,
+                headers: {'Content-Type': 'aplication/json'},
+                body: JSON.stringify(dadosUser)});
 
             if(!resposta.ok){
                 const erro = await resposta.json();
@@ -36,20 +39,25 @@ function Login(props){
         }
     }
 
+    const Cadastrar = async (e) =>{
+        e.preventDefault()
+    }
+
     return(
 
         <div className='Login'>
+            <h2>Tela de Login</h2>
             <form  onSubmit={handleSubmit} className='forms'>
                 <label>Email</label>
                 <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <label>Senha</label>
-                <input type='senha' value={senha} onChange={(e) => setSenha(e.target.value)}></input>
+                <input type='password' value={senha} onChange={(e) => setSenha(e.target.value)}></input>
                 <button type='submit'>Realizar Login</button>
             </form>
-
-                <h2>{erro}</h2>
-                <button>Realizar Cadastro</button>
-            
+            <div className='Base'>
+                <h3 className='MsgErro'>{erro}</h3>
+                <button onClick={Cadastrar} className='RealizarCadastro'>Realizar Cadastro</button>
+            </div>
         </div>
 
     )
