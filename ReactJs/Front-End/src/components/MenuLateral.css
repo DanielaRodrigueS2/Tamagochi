@@ -11,6 +11,11 @@
     flex-direction: column;
 }
 
+.blurred{
+    filter: blur(10px);
+    pointer-events: none;
+}
+
 .NomeMenu{
     display: flex;
     background-color: rgb(139, 206, 218);

@@ -3,7 +3,7 @@ import './MenuLateral.css'
 function MenuLateral(props){
 
     return(
-        <div className='Principal'>
+        <div className={`Principal ${props.blur? 'blurred' : ''}`}>
             <div className='NomeMenu'>
                 <h2>{props.menu}</h2>
             </div>

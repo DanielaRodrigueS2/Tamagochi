@@ -23,7 +23,7 @@ function Home(){
         const tokenSalvo = localStorage.getItem('token');
         if(tokenSalvo){
             setToken(tokenSalvo);
-            setMenuLogin(false)
+            setMenuLogin(false);
         }
     }, [])
 
@@ -50,7 +50,9 @@ function Home(){
                 </div>
 
             </div>
+            
             <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
+            
             {menuLogin && (
                 <Login armazenaToken={armazenaToken}></Login>
             )}
