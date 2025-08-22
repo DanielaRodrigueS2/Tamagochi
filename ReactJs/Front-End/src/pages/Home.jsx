@@ -4,6 +4,7 @@ import Ovo from '../components/Ovo';
 import Status from '../components/Status';
 import MenuLateral from '../components/MenuLateral';
 import Login from '../components/Login';
+import Registro from '../components/Registro'
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +12,7 @@ function Home(){
 
     const [botaoApertado, setBotaoApertado] = useState('');
     const [menuLogin, setMenuLogin] = useState(true);
+    const [menuRegistro, setMenuRegistro] = useState(true)
     const [token, setToken] = useState(null);
 
     //Função para armazenar o token no local storage
@@ -54,7 +56,11 @@ function Home(){
             <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
             
             {menuLogin && (
-                <Login armazenaToken={armazenaToken}></Login>
+                <Login armazenaToken={armazenaToken} ></Login>
+            )}
+
+            {menuRegistro && (
+                <Registro></Registro>
             )}
             
         </div>

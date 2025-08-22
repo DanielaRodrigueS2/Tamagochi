@@ -1,8 +1,8 @@
-.Login{
+.Registro{
     position: fixed;
     display: flex;
     width: 30%;
-    height: 45%;
+    height: 55%;
     background-color: rgb(84, 174, 190);
     align-items: center;
     justify-content: space-around;
@@ -37,4 +37,20 @@ input{
 
 button{
     align-self: center;
+}
+
+.botaoLogin{
+    display: flex;
+    justify-self: flex-start;
+}
+
+.Base{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 30%;
+}
+
+.MsgErro{
+    color: red;
 }
