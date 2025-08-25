@@ -7,7 +7,7 @@ function Registro(props){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [validarSenha, setValidarSenha] = useState('');
-    const {erro, setErro} = useState('abacaxi');
+    const [erro, setErro] = useState('');
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -25,9 +25,9 @@ function Registro(props){
 
         try{
 
-            const resposta = await fetch('http://localhost/3000/register',{
+            const resposta = await fetch('http://localhost:3000/register',{
                 method : 'POST',
-                headers: {'Content-Type': 'aplication/json'},
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(dadosUser)
             });
 
@@ -35,7 +35,7 @@ function Registro(props){
                 const erro = await resposta.json();
                 setErro(erro);
                 console.log(erro);
-                return
+                return;
             };
 
             const dados = await resposta.json();
@@ -55,7 +55,7 @@ function Registro(props){
     return(
 
         <div className='Registro'>
-            <h2>Tela de Cadsatro</h2>
+            <h2>Tela de Cadastro</h2>
             <form  onSubmit={handleSubmit} className='forms'>
                 <label>Nome</label>
                 <input value={nome} onChange={(e) => setNome(e.target.value)}></input>
