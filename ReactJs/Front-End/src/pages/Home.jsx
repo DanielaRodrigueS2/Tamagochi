@@ -56,11 +56,11 @@ function Home(){
             <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
             
             {menuLogin && (
-                <Login armazenaToken={armazenaToken} ></Login>
+                <Login armazenaToken={armazenaToken} setMenu={setMenuLogin}></Login>
             )}
 
             {menuRegistro && (
-                <Registro></Registro>
+                <Registro setMenu={setMenuRegistro}></Registro>
             )}
             
         </div>

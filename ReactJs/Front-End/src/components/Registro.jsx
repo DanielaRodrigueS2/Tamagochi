@@ -33,7 +33,7 @@ function Registro(props){
 
             if(!resposta.ok){
                 const erro = await resposta.json();
-                setErro(erro);
+                setErro(erro.erro || "Ocorreu um erro inesperado");
                 console.log(erro);
                 return;
             };
@@ -49,7 +49,7 @@ function Registro(props){
     }
 
     const telaLogin = () =>{
-
+        props.setMenu(false);
     }
 
     return(

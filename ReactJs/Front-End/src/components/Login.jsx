@@ -18,12 +18,12 @@ function Login(props){
 
             const resposta = await fetch('http://localhost:3000/login', {
                 method: 'POST' ,
-                headers: {'Content-Type': 'aplication/json'},
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(dadosUser)});
 
             if(!resposta.ok){
                 const erro = await resposta.json();
-                setErro(erro);
+                setErro(erro.erro || "Erro inesperado");
                 console.log(erro);
                 return;
             }
@@ -31,7 +31,8 @@ function Login(props){
             const dados = await resposta.json();
             const token = dados.token;
             const user = dados.usuario;            
-            props.armazenaToken(token)
+            props.armazenaToken(token);
+            props.setMenu(false);
 
         }
         catch(erro){

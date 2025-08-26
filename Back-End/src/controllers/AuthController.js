@@ -27,7 +27,7 @@ exports.login = async (req,res) =>{
     const {email, senha} = req.body;
 
     try{
-        const usuario = await User.findOne(email);
+        const usuario = await User.findOne({email});
         if(!usuario) return res.status(400).josn({erro: 'Email não encontrado'})
 
         const senhaCorreta = await usuario.compararSenha(senha);
@@ -43,6 +43,7 @@ exports.login = async (req,res) =>{
         res.json({token, usuario:{id: usuario._id, nome: usuario.nome}})
     }
     catch(erro){
+        console.log(erro);
         res.status(500).json({erro: 'Erro ao realizar o login'});
     }
 }
