@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 function Ovo(){
 
+    
+
     const [sprite, setSprite] = useState(Ovo_normal);
     const [cliques, setCliques] = useState(0);
 

@@ -16,6 +16,7 @@
 }
 
 .forms{
+    background-color: antiquewhite;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -27,20 +28,26 @@
 label{
     display: flex;
     margin-bottom: 5px;
+    font-size: large;
 }
 
 input{
     width: 100%;
+    height: auto;
     padding: 2px;
     margin-bottom: 10px;
 }
 
 button{
-    align-self: center;
+    height: 10%;
+    justify-self: end;
+    font-size: large;
 }
 
 .botaoLogin{
+    height: 25%;
     display: flex;
+    align-self: center;
     justify-self: flex-start;
 }
 

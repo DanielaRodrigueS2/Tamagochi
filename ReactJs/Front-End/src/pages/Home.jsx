@@ -14,6 +14,7 @@ function Home(){
     const [menuLogin, setMenuLogin] = useState(true);
     const [menuRegistro, setMenuRegistro] = useState(true)
     const [token, setToken] = useState(null);
+    const [user, setUser] = useState(null);
 
     //Função para armazenar o token no local storage
     const armazenaToken = (token) =>{
@@ -21,12 +22,27 @@ function Home(){
         setToken(token);
     }
 
-    useEffect(()=>{
-        const tokenSalvo = localStorage.getItem('token');
-        if(tokenSalvo){
-            setToken(tokenSalvo);
-            setMenuLogin(false);
+    useEffect( async () =>{
+        const validarToken = async () => {
+
+            const tokenSalvo = localStorage.getItem('token');
+            if(tokenSalvo){
+                try{
+                    const res = await fetch('http://localhost:3000/validate',{
+                    headers:{Authorization: `Bearer ${tokenSalvo}`}
+                })
+            
+                if(!res.ok) throw new Error("Token inválido");
+
+                }
+                catch(error){
+
+                }
+            }
         }
+
+        validarToken();
+
     }, [])
 
 

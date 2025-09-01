@@ -46,4 +46,18 @@ exports.login = async (req,res) =>{
         console.log(erro);
         res.status(500).json({erro: 'Erro ao realizar o login'});
     }
-}
+};
+
+exports.validate = async (req, res) => {
+
+    try{
+        const user = await User.findById(req.user.id).select("-senha");
+        if(!user){
+            return res.status(404).json({error: 'Usuário não encontrado'});
+        }
+        res.json(user);
+    }
+    catch(erro){
+        res.status(500).json({error: "Erro interno do server"});
+    }
+};

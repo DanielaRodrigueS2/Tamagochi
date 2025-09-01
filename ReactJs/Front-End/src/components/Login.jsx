@@ -30,7 +30,8 @@ function Login(props){
 
             const dados = await resposta.json();
             const token = dados.token;
-            const user = dados.usuario;            
+            const user = dados.usuario;
+            localStorage.setItem('user', user);
             props.armazenaToken(token);
             props.setMenu(false);
 
