@@ -5,7 +5,7 @@ function Login(props){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [erro, setErro] = useState('abacaxi');
+    const [erro, setErro] = useState('');
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -31,7 +31,7 @@ function Login(props){
             const dados = await resposta.json();
             const token = dados.token;
             const user = dados.usuario;
-            localStorage.setItem('user', user);
+            localStorage.setItem('user', JSON.stringify(user));
             props.armazenaToken(token);
             props.setMenu(false);
 
@@ -43,6 +43,7 @@ function Login(props){
 
     const Cadastrar = async (e) =>{
         e.preventDefault()
+        props.setMenuRegis(true)
     }
 
     return(

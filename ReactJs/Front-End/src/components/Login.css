@@ -24,18 +24,18 @@
     height: 50%;
 }
 
-label{
+.Login label{
     display: flex;
     margin-bottom: 5px;
 }
 
-input{
+.Login input{
     width: 100%;
     padding: 2px;
     margin-bottom: 10px;
 }
 
-button{
+.Login button{
     align-self: center;
 }
 

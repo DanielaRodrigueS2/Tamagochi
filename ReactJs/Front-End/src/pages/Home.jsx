@@ -12,7 +12,7 @@ function Home(){
 
     const [botaoApertado, setBotaoApertado] = useState('');
     const [menuLogin, setMenuLogin] = useState(true);
-    const [menuRegistro, setMenuRegistro] = useState(true)
+    const [menuRegistro, setMenuRegistro] = useState(false)
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
 
@@ -22,7 +22,7 @@ function Home(){
         setToken(token);
     }
 
-    useEffect( async () =>{
+    useEffect(() =>{
         const validarToken = async () => {
 
             const tokenSalvo = localStorage.getItem('token');
@@ -34,9 +34,19 @@ function Home(){
             
                 if(!res.ok) throw new Error("Token inválido");
 
+                const data = await res.json();
+
+                setUser(data);
+                setToken(tokenSalvo);
+                armazenaToken(token)
+                setMenuLogin(false);
+
                 }
                 catch(error){
-
+                    console.log(error);
+                    localStorage.removeItem('token');
+                    setMenuLogin(true)
+                    setUser(null)
                 }
             }
         }
@@ -72,11 +82,11 @@ function Home(){
             <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
             
             {menuLogin && (
-                <Login armazenaToken={armazenaToken} setMenu={setMenuLogin}></Login>
+                <Login armazenaToken={armazenaToken} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>
             )}
 
             {menuRegistro && (
-                <Registro setMenu={setMenuRegistro}></Registro>
+                <Registro setMenu={setMenuRegistro} setMenuLog={setMenuLogin}></Registro>
             )}
             
         </div>

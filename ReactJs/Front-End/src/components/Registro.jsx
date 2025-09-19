@@ -56,7 +56,7 @@ function Registro(props){
 
         <div className='Registro'>
             <h2>Tela de Cadastro</h2>
-            <form  onSubmit={handleSubmit} className='forms'>
+            <form  onSubmit={handleSubmit} className='formsRegistro'>
                 <label>Nome</label>
                 <input value={nome} onChange={(e) => setNome(e.target.value)}></input>
                 <label>Email</label>

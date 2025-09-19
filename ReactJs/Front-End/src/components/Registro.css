@@ -15,8 +15,7 @@
     transform: translate(-50%,-50%);
 }
 
-.forms{
-    background-color: antiquewhite;
+.formsRegistro{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -25,27 +24,27 @@
     height: 70%;
 }
 
-label{
+.Registro label{
     display: flex;
     margin-bottom: 5px;
     font-size: large;
 }
 
-input{
+.Registro input{
     width: 100%;
     height: auto;
     padding: 2px;
     margin-bottom: 10px;
 }
 
-button{
+.Registro button{
     height: 10%;
     justify-self: end;
     font-size: large;
 }
 
 .botaoLogin{
-    height: 25%;
+    height: 35%;
     display: flex;
     align-self: center;
     justify-self: flex-start;
