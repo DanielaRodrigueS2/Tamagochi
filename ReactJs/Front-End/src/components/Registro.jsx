@@ -69,7 +69,7 @@ function Registro(props){
             </form>
             <div className='Base'>
                 <h2 className='MsgErro'>{erro}</h2>
-                <button onClick={telaLogin} className='botaoLogin'>Tela de Login</button>
+                <button onClick={telaLogin} className='botaoToLogin'>Tela de Login</button>
             </div>
         </div>
 

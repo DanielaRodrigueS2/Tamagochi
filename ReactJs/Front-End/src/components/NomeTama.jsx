@@ -1,12 +1,13 @@
 import { useState } from "react"
 import './NomeTama.css'
 
-function NomeTama(){
+function NomeTama(props){
 
     const [nome, setNome] = useState('')
 
     const handleSubmit = async (e) => {
-        e.preventDefaut()
+        e.preventDefaut();
+        
     }
 
     return(

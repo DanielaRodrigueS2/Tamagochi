@@ -24,30 +24,24 @@
     height: 70%;
 }
 
-.Registro label{
+.Registro .formsRegistro label{
     display: flex;
     margin-bottom: 5px;
     font-size: large;
 }
 
-.Registro input{
+.Registro  .formsRegistro input{
     width: 100%;
     height: auto;
     padding: 2px;
     margin-bottom: 10px;
 }
 
-.Registro button{
+.Registro  .formsRegistro button{
     height: 10%;
-    justify-self: end;
-    font-size: large;
-}
-
-.botaoLogin{
-    height: 35%;
-    display: flex;
+    justify-self: center;
     align-self: center;
-    justify-self: flex-start;
+    font-size: large;
 }
 
 .Base{
@@ -55,8 +49,23 @@
     align-items: center;
     flex-direction: column;
     height: 30%;
+    width: 30%;
 }
 
+.botaoToLogin{
+    display: flex;
+    height: 20%;
+    width: 80%;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-start;
+    font-size: large;
+}
+
+
 .MsgErro{
+    display: flex;
+    height: 20%;
     color: red;
 }
