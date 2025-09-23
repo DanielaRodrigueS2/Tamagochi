@@ -11,7 +11,7 @@ exports.getUser = async (req, res) =>{
         res.json(user);
     }
     catch(erro){
-        res.status(500).json({erro: 'Erro ao retonar user'});
+        res.status(500).json({erro: 'Erro ao retonar user',  erro});
     }
 
 }
@@ -26,7 +26,7 @@ exports.getTamagochiByUserId = async (req, res) =>{
         res.json(tamagochi)
     }
     catch(erro){
-
+        res.status(500).json({erro})
     }
 
 }
