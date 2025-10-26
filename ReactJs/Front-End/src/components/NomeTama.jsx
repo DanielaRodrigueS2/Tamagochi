@@ -42,7 +42,7 @@ function NomeTama(props){
 
     return(
         <div className="NomeTama">
-            <form onSubmit={handleSubmit}>
+            <form className="NomeTamaForms" onSubmit={handleSubmit}>
                 <label>Digite o nome do seu tamagochi: </label>
                 <input type="text"  value={nome} onChange={(e) => setNome(e.target.value)}/>
                 <button type="submit">Confirmar</button>
