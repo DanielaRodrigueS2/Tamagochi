@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    nome: Tamagochi,
+    nome: "Tamagochi",
     fome: 50, 
     energia: 50,
     felicidade: 50,
