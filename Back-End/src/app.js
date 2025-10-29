@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const TamagochiRoutes = require('./routes/TamagochiRoutes');
 const AuthRoutes = require('./routes/AuthRoutes');
+const ItensRoutes = require('./routes/ItensRoutes');
 
 const app = express({
     origin: "http://localhost:5173",
@@ -15,6 +16,7 @@ app.use(express.json())
 
 app.use(AuthRoutes);
 app.use(TamagochiRoutes);
+app.use(ItensRoutes);
 
 
 module.exports = app
