@@ -1,7 +1,7 @@
 import './Ovo.css'
-import Ovo_normal from "../sprites/Ovo_normal.gif"
-import Ovo_rachando from "../sprites/Ovo_rachando.gif"
-import tubaraoparado from "../sprites/tubaraoparado.gif"
+import Ovo_normal from "../sprites/Ovos/Ovo_normal.gif"
+import Ovo_rachando from "../sprites/Ovos/Ovo_rachando.gif"
+import tubaraoparado from "../sprites/Tubarao/tubaraoparado.gif"
 import { useState } from 'react';
 
 function Ovo(){

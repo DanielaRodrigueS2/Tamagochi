@@ -3,7 +3,7 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 const TamagochiController = require('../controllers/TamagochiController');
 
-router.get('/tamagochi', auth, TamagochiController.getAllTamagochis);
+router.get('/tamagochi', authAdmin, TamagochiController.getAllTamagochis);
 router.post('/tamagochi', auth, TamagochiController.createTamagochi);
 router.get('/tamagochi/:id', auth, TamagochiController.getTamagochiById);
 router.put('/tamagochi/:id', auth, TamagochiController.updateTamagochi);
