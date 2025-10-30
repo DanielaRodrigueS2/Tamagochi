@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middlewares/auth');
+const authAdmin = require('../middlewares/authAdmin')
 const TamagochiController = require('../controllers/TamagochiController');
 
 router.get('/tamagochi', authAdmin, TamagochiController.getAllTamagochis);

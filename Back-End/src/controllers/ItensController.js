@@ -6,7 +6,7 @@ exports.createItem = async (req, res) =>{
     try{
         const item = new Itens({nome,tipo, energia, felicidade, fome, sprite});
         const itemCriado = await item.save();
-        res.status(201).json({message: 'Item criado com sucesso'})
+        res.status(201).json(itemCriado)
 
     }
     catch(erro){

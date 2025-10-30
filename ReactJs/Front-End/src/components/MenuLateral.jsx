@@ -1,4 +1,5 @@
 import './MenuLateral.css'
+import MenuLateralSwiper from './MenuLateralSwiper'
 
 function MenuLateral(props){
 
@@ -8,7 +9,7 @@ function MenuLateral(props){
                 <h2>{props.menu}</h2>
             </div>
             <div className='Elementos'>
-
+                <MenuLateralSwiper></MenuLateralSwiper>
             </div>
             <div className='Rodape'>
 
