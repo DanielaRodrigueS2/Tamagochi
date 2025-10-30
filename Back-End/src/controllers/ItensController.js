@@ -16,7 +16,7 @@ exports.createItem = async (req, res) =>{
 
 exports.getAllItens = async (req,res) =>{
     try{
-        const itens = await Itens.findById();
+        const itens = await Itens.find();
         res.json(itens);
     }
     catch(erro){
@@ -27,7 +27,7 @@ exports.getAllItens = async (req,res) =>{
 exports.getItensByTipo = async  (req,res) =>{
     const tipo = req.params.tipo;
     try{
-        const itens = await Itens.findById(tipo);
+        const itens = await Itens.find().where('tipo').equals(tipo);
         res.json(itens)
     }
     catch(erro){
