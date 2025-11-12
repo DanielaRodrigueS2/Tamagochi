@@ -4,6 +4,8 @@ import 'swiper/css'
 import {Grid, Pagination} from 'swiper/modules'
 
 function MenuLateralSwiper(props){
+    console.log('Itens recebidos: ', props.itens)
+    
     return(
         <Swiper 
             spaceBetween={20} 
@@ -21,7 +23,7 @@ function MenuLateralSwiper(props){
         >
             
             {props.itens.map((item) => (
-                <SwiperSlide key={item.id} onClick={() => pass}>
+                <SwiperSlide key={item._id} onClick={() => pass}>
                     <img src={item.sprite} alt={item.nome} className='imagem'/>
                 </SwiperSlide>
             ))}

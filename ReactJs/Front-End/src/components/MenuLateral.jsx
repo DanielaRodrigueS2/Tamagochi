@@ -10,15 +10,15 @@ function MenuLateral(props){
 
     const getItens = async () =>{
         try{
-            const resposta = await fetch('https://localhost/itens');
-
+            const resposta = await fetch('http://localhost:3000/itens');
+            
             if(!resposta.ok){
                 const erro = await resposta.json();
                 console.log(erro);
                 return;
             }
 
-            const dados = await reposta.json();
+            const dados = await resposta.json();
             setItens(dados);
         }
         catch(erro){
@@ -26,22 +26,60 @@ function MenuLateral(props){
         }
     }
 
-    const itensSwiper = async () =>{
-        for(i=0;i< itens.length;i++){
-            switch (itens[i].tipo) {
-                case 1:
-                    
-                    break;
-            
-                default:
-                    break;
+    const itensSwiper = async (tipo) =>{
+        let listaTemporaria = [];
+
+        for(let i=0;i< itens.length;i++){
+
+            if(itens[i].tipo === tipo){
+                listaTemporaria.push(itens[i]);
             }
         }
-    }
+        console.log(listaTemporaria);
+        setDadosSwiper(listaTemporaria);
+    };
 
     useEffect(() =>{
         getItens();
-    }, [])
+    }, []);
+    
+    useEffect(() =>{
+        if (!itens) return;
+        
+        let tipo = 0;
+        switch (props.menu) {
+            case 'Ovos':
+                tipo = 0;
+                break;
+            
+            case 'Comidas':
+                tipo = 1;
+                break;
+
+            case 'Brinquedos':
+                tipo = 2;
+                break;
+            
+            case 'Banho':
+                tipo = 3;
+                break;
+
+            case 'Dormir':
+                tipo = 4;
+                break;
+
+            case 'Jogos':
+                tipo = 5;
+                break;
+        
+            default:
+                break;
+        }
+        
+        itensSwiper(tipo);
+    }, [props.menu, itens])
+
+
 
     return(
         <div className={`Principal ${props.blur? 'blurred' : ''}`}>
