@@ -1,3 +1,24 @@
-Swiper{
-    display: flex;
+.Swipper {
+    height: 350px;
+    width: 200px;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.SwiperSlideMenu {
+    height: 100px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.swiper-slide{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.imagem {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
 }

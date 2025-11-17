@@ -4,15 +4,18 @@ import 'swiper/css'
 import {Grid, Pagination} from 'swiper/modules'
 
 function MenuLateralSwiper(props){
-    console.log('Itens recebidos: ', props.itens)
+    
+    console.log('Itens recebidos: ', props.itens);
     
     return(
         <Swiper 
+            centeredSlides={false}
+            centerInsufficientSlides={true}
             spaceBetween={20} 
             direction='vertical' 
             slidesPerGroup={3} 
             grid={{
-                rows: 2,
+                rows: 1,
             }}
             pagination={{
                 clickable: true,
@@ -23,8 +26,8 @@ function MenuLateralSwiper(props){
         >
             
             {props.itens.map((item) => (
-                <SwiperSlide key={item._id} onClick={() => pass}>
-                    <img src={item.sprite} alt={item.nome} className='imagem'/>
+                <SwiperSlide key={item._id} onClick={() => pass} className='SwiperSlideMenu'>
+                    <img src={`/Itens/${item.tipo}/${item.sprite}`} alt={item.nome} className='imagem'/>
                 </SwiperSlide>
             ))}
         </Swiper>

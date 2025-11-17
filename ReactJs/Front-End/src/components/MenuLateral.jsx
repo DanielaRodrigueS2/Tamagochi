@@ -87,7 +87,7 @@ function MenuLateral(props){
                 <h2>{props.menu}</h2>
             </div>
             <div className='Elementos'>
-                <MenuLateralSwiper itens={dadosSwiper}></MenuLateralSwiper>
+                <MenuLateralSwiper itens={dadosSwiper} className="MenuLateralSwipper2"></MenuLateralSwiper>
             </div>
             <div className='Rodape'>
 

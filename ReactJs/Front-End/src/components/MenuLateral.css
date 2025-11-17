@@ -30,6 +30,7 @@
 
 .Elementos{
     display: flex;
+    align-items: center;
     height: 70%;
 }
 
@@ -41,4 +42,10 @@
     border-radius: 20px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+}
+
+.MenuLateralSwipper2{
+    display: flex;
+    justify-self: center;
+    align-self: center;
 }
