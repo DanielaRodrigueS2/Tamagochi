@@ -5,8 +5,8 @@ const initialState = {
     fome: 50, 
     energia: 50,
     felicidade: 50,
-    cliques: 50,
-    sprite: 1
+    cliques: 0,
+    sprite: 0
 }
 
 const tamagochiSlice = createSlice({
@@ -36,11 +36,14 @@ const tamagochiSlice = createSlice({
         },
         redefinir: (state) =>{
             Object.assign(state, initialState);
+        },
+        incrementar: state =>{
+            state.value += 1;
         }
 
     }
 });
 
-export const {alimentar, descansasr, brincar, redefinir} = tamagochiSlice.actions;
+export const {alimentar, descansar, brincar, alterarSprite, redefinir, incrementar} = tamagochiSlice.actions;
 export default tamagochiSlice.reducer;
 
