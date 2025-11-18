@@ -13,17 +13,17 @@ const tamagochiSlice = createSlice({
     name: 'tamagochi',
     initialState, 
     reducers:{
-        alimentar: (state) =>{
+        alimentar: (state, actions) =>{
             state.fome = Math.max(0, state.fome - 10);
             state.felicidade += 5;
             state.cliques +=1;
         },
-        descansar: (state) =>{
+        descansar: (state, actions) =>{
             state.energia = Math.min(100, state.energia + 30);
             state.cliques += 1;
             state.fome = Math.min(100, state.fome + 20);
         },
-        brincar: (state) =>{
+        brincar: (state, actions) =>{
             state.felicidade = Math.min(100, state.felicidade + 30);
             state.cliques += 1;
             state.energia = Math.max(0, state.energia - 20);
