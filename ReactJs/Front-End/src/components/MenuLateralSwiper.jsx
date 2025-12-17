@@ -1,36 +1,23 @@
-import {Swiper, SwiperSlide} from 'swiper/react'
 import './MenuLateralSwiper.css'
-import 'swiper/css'
-import {Grid, Pagination} from 'swiper/modules'
+import {DndContext, closestCorners} from '@dnd-kit/core'
+// Mudar para Grid
 
 function MenuLateralSwiper(props){
     
-    console.log('Itens recebidos: ', props.itens);
+    const itens = props.itens
+    console.log('Itens recebidos: ', itens);
+
     
     return(
-        <Swiper 
-            centeredSlides={false}
-            centerInsufficientSlides={true}
-            spaceBetween={20} 
-            direction='vertical' 
-            slidesPerGroup={3} 
-            grid={{
-                rows: 1,
-            }}
-            pagination={{
-                clickable: true,
-            }}
-            modules={[Grid, Pagination]}
-            className='Swipper'
-        
-        >
-            
-            {props.itens.map((item) => (
-                <SwiperSlide key={item._id} onClick={() => pass} className='SwiperSlideMenu'>
-                    <img src={`/Itens/${item.tipo}/${item.sprite}`} alt={item.nome} className='imagem'/>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+        <div className='Drag'>
+            <DndContext collisionDetection={closestCorners} className="DndMenu">
+                {itens.map((item) => (
+                    <div key={item._id} className='ItensMenu'>
+                        <img src={`/Itens/${item.tipo}/${item.sprite}`} alt={item.nome} className='imagem'/>
+                    </div>
+                ))}
+            </DndContext>
+        </div>
     );
 }
 
