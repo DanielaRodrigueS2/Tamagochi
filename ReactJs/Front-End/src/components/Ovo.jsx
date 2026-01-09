@@ -2,9 +2,11 @@ import './Ovo.css'
 import Ovo_normal from "../sprites/Ovos/Ovo_normal.gif"
 import Ovo_rachando from "../sprites/Ovos/Ovo_rachando.gif"
 import tubaraoparado from "../sprites/Tubarao/tubaraoparado.gif"
+import { useDroppable } from '@dnd-kit/core';
+import React from 'react';
 import { useState } from 'react';
 
-function Ovo(){
+function Ovo(props){
 
     const [sprite, setSprite] = useState(Ovo_normal);
     const [cliques, setCliques] = useState(0);
@@ -27,8 +29,17 @@ function Ovo(){
         setSprite(tubaraoparado)
     }
 
+ 
+    const {isOver, setNodeRef} = useDroppable({
+        id: 'droppable'
+    });
+    const style ={
+        color: isOver ? 'green' :undefined,
+    };
+ 
+
     return(
-        <div>
+        <div ref={setNodeRef} style={style}>
             <img src={sprite} alt="Ovo" className="Ovo_normal" onClick={verificaCliques}/>
         </div>
         

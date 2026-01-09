@@ -7,6 +7,7 @@ import Login from '../components/Login';
 import Registro from '../components/Registro'
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { DndContext } from '@dnd-kit/core';
 
 function Home(){
 
@@ -59,27 +60,31 @@ function Home(){
 
     return(
         <div className='estrutura'>
-            <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
-                <div className='menuTop'> 
-                    <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
-                    <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comidas')}/>
-                    <Botao Icon={FaFutbol} onClick={()=> setBotaoApertado('Brinquedos')}/>
-                </div>
+            <DndContext>
+                <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
+                    <div className='menuTop'> 
+                        <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
+                        <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comidas')}/>
+                        <Botao Icon={FaFutbol} onClick={()=> setBotaoApertado('Brinquedos')}/>
+                    </div>
 
-                <div className='tela'>
-                    <Status></Status>
-                    <Ovo></Ovo>
-                </div>
+                    <div className='tela'>
+                        <Status></Status>
+                        <Ovo></Ovo>
+                    </div>
 
-                <div className='menuBottom'>
-                    <Botao Icon={FaBath} onClick={()=> setBotaoApertado('Banho')}/>
-                    <Botao Icon={FaBed} onClick={()=> setBotaoApertado('Dormir')}/>
-                    <Botao Icon={FaGamepad} onClick={()=> setBotaoApertado('Jogos')}/>
-                </div>
+                    <div className='menuBottom'>
+                        <Botao Icon={FaBath} onClick={()=> setBotaoApertado('Banho')}/>
+                        <Botao Icon={FaBed} onClick={()=> setBotaoApertado('Dormir')}/>
+                        <Botao Icon={FaGamepad} onClick={()=> setBotaoApertado('Jogos')}/>
+                    </div>
 
-            </div>
+                </div>
             
-            <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
+                <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
+
+            </DndContext>
+            
             
             {menuLogin && (
                 <Login armazenaToken={armazenaToken} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>

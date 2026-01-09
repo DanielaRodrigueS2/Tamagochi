@@ -1,5 +1,6 @@
 import './MenuLateralSwiper.css'
 import {DndContext, closestCorners} from '@dnd-kit/core'
+import { useDraggable } from '@dnd-kit/core';
 // Mudar para Grid
 
 function MenuLateralSwiper(props){
