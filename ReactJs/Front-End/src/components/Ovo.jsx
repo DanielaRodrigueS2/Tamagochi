@@ -6,7 +6,7 @@ import { useDroppable } from '@dnd-kit/core';
 import React from 'react';
 import { useState } from 'react';
 
-function Ovo(props){
+function Ovo([ultimoItem]){
 
     const [sprite, setSprite] = useState(Ovo_normal);
     const [cliques, setCliques] = useState(0);
@@ -31,7 +31,7 @@ function Ovo(props){
 
  
     const {isOver, setNodeRef} = useDroppable({
-        id: 'droppable'
+        id: 'tamagochi'
     });
     const style ={
         color: isOver ? 'green' :undefined,
