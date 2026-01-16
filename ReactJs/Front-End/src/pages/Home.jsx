@@ -6,7 +6,7 @@ import MenuLateral from '../components/MenuLateral';
 import Login from '../components/Login';
 import Registro from '../components/Registro'
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 
 function Home(){
@@ -16,12 +16,26 @@ function Home(){
     const [menuRegistro, setMenuRegistro] = useState(false)
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
+    const [isDropped, setIsDropped] = useState(false);
+    const [ultimoItem, setUltimoItem] = useState(null)
 
     //Função para armazenar o token no local storage
     const armazenaToken = (token) =>{
         localStorage.setItem('token', token);
         setToken(token);
     }
+    
+    function handleDragEnd(event){
+        
+        if (event.over && event.over.id === 'tamagochi'){
+            setIsDropped(true);
+            console.log('Dropou');
+            setUltimoItem(event.active);
+            console.log(ultimoItem)
+        }
+
+    }
+    
 
     useEffect(() =>{
         const validarToken = async () => {
@@ -60,7 +74,7 @@ function Home(){
 
     return(
         <div className='estrutura'>
-            <DndContext>
+            <DndContext onDragEnd={handleDragEnd}>
                 <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
                     <div className='menuTop'> 
                         <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
@@ -70,7 +84,7 @@ function Home(){
 
                     <div className='tela'>
                         <Status></Status>
-                        <Ovo></Ovo>
+                        <Ovo ultimoItem={ultimoItem}></Ovo>
                     </div>
 
                     <div className='menuBottom'>

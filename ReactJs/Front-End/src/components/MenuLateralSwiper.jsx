@@ -11,11 +11,13 @@ function MenuLateralSwiper(props){
     
     return(
         <div className='Drag'>
-            <DndContext collisionDetection={closestCorners} className="DndMenu">
-                {itens.map((item) => (
-                    <Item key={item._id} item={item}/>
-                ))}
-            </DndContext>
+            <div className="DndMenu">
+                <div className='ItensMenu'>
+                    {itens.map((item) => (
+                        <Item key={item._id} item={item}/>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

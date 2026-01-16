@@ -6,7 +6,7 @@ import { useDroppable } from '@dnd-kit/core';
 import React from 'react';
 import { useState } from 'react';
 
-function Ovo([ultimoItem]){
+function Ovo({ultimoItem}){
 
     const [sprite, setSprite] = useState(Ovo_normal);
     const [cliques, setCliques] = useState(0);
