@@ -30,7 +30,7 @@ function Home(){
         if (event.over && event.over.id === 'tamagochi'){
             setIsDropped(true);
             console.log('Dropou');
-            setUltimoItem(event.active);
+            setUltimoItem(event.active.data.current);
             console.log(ultimoItem)
         }
 

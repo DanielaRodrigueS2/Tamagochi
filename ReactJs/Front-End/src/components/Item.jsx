@@ -3,7 +3,7 @@ import './Item.css'
 
 function Item({item}){
 
-    const {attributes, listeners, setNodeRef, transform} = useDraggable({id: item._id})
+    const {attributes, listeners, setNodeRef, transform} = useDraggable({id: item._id, data: item})
 
     const style = {
         transform : transform
