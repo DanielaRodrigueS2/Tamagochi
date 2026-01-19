@@ -6,7 +6,7 @@ const initialState = {
     energia: 50,
     felicidade: 50,
     cliques: 0,
-    sprite: 0
+    sprite: 'Ovo_normal.gif'
 }
 
 const tamagochiSlice = createSlice({
@@ -28,8 +28,8 @@ const tamagochiSlice = createSlice({
         redefinir: (state) =>{
             Object.assign(state, initialState);
         },
-        incrementar: state =>{
-            state.value += 1;
+        incrementar: (state) =>{
+            state.cliques += 1;
         }
 
     }
