@@ -37,8 +37,8 @@ function Ovo({ultimoItem}){
 
 
     useEffect(() =>{
-        console.log(ultimoItem.fome, ultimoItem.energia, ultimoItem.felicidade);
         if(ultimoItem != null){
+            console.log(ultimoItem.fome, ultimoItem.energia, ultimoItem.felicidade);
             usouItem();
         }
     }, [ultimoItem])

@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import { act } from 'react';
 
 const initialState = {
     nome: "Tamagochi",
@@ -14,9 +15,22 @@ const tamagochiSlice = createSlice({
     initialState, 
     reducers:{
         usarItem: (state, actions) =>{
-            state.fome += actions.payload.fome
-            state.felicidade += actions.payload.felicidade
-            state.energia += actions.payload.energia
+
+            if(actions.payload.fome < 0){
+                state.fome = Math.max(0, (state.fome + actions.payload.fome));
+            }
+            else state.fome = Math.min(100, (state.fome + actions.payload.fome));
+
+            if(actions.payload.energia < 0){
+                state.energia = Math.max(0, (state.energia + actions.payload.energia));
+            }
+            else state.energia = Math.min(100, (state.energia + actions.payload.energia));
+            
+            if(actions.payload.felicidade < 0){
+                state.felicidade = Math.max(0, (state.felicidade + actions.payload.felicidade));
+            }
+            else state.felicidade = Math.min(100, (state.felicidade + actions.payload.felicidade));
+
             state.cliques +=1;
         },
         alterarNome: (state, actions) =>{
