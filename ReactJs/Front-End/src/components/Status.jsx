@@ -1,14 +1,19 @@
 import './Status.css'
-import { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { SlEnergy } from "react-icons/sl";
 import { FaFish, FaGrin} from "react-icons/fa";
+import { useEffect } from 'react';
 
 function Status(props){
     
-    const [fome, setFome] = useState(20)
-    const [energia, setEnergia] = useState(20)
-    const [alegria, seteAlegria] = useState(20)
+    const fome = useSelector(state => state.tamagochi.fome);
+    const energia = useSelector(state => state.tamagochi.energia)
+    const alegria = useSelector(state => state.tamagochi.felicidade)
 
+
+    useEffect(() =>{
+        console.log(fome, energia, alegria);
+    },[fome, energia, alegria])
 
     return(
         <div className='Status'>

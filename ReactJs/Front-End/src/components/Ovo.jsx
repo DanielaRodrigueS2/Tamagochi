@@ -1,6 +1,6 @@
 import './Ovo.css'
 import { useDroppable } from '@dnd-kit/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { usarItem, alterarSprite, incrementar } from '../redux/tamagochiSlice';
 
@@ -20,17 +20,31 @@ function Ovo({ultimoItem}){
             dispatch(alterarSprite(proximoSprite));
 
             setTimeout(() => {
-                nascimento()
+                
                 setProximoSprite('tubaraoparado.gif');
+                dispatch(alterarSprite(proximoSprite));
             }, "3000");
         }
     }
 
-    const nascimento = () =>{
-        dispatch(alterarSprite(proximoSprite))
+    const usouItem = () =>{
+        dispatch(usarItem({
+            fome: ultimoItem.fome,
+            energia: ultimoItem.energia,
+            felicidade: ultimoItem.felicidade,
+        }));
     }
 
+
+    useEffect(() =>{
+        console.log(ultimoItem.fome, ultimoItem.energia, ultimoItem.felicidade);
+        if(ultimoItem != null){
+            usouItem();
+        }
+    }, [ultimoItem])
+
  
+    // Drag and drop
     const {isOver, setNodeRef} = useDroppable({
         id: 'tamagochi'
     });
