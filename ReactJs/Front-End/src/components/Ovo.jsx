@@ -9,20 +9,16 @@ function Ovo({ultimoItem}){
     const dispatch = useDispatch();
     const cliques = useSelector(state => state.tamagochi.cliques);
     const sprite = useSelector(state => state.tamagochi.sprite);
-    const [proximoSprite, setProximoSprite] = useState(null)
 
     const verificaCliques = () =>{
         dispatch(incrementar());
         console.log(cliques);
         if (cliques >= 25 && sprite !== 'tubaraoparado.gif'){
 
-            setProximoSprite('Ovo_rachando.gif');
-            dispatch(alterarSprite(proximoSprite));
+            dispatch(alterarSprite('Ovo_rachando.gif'));
 
             setTimeout(() => {
-                
-                setProximoSprite('tubaraoparado.gif');
-                dispatch(alterarSprite(proximoSprite));
+                dispatch(alterarSprite('tubaraoparado.gif'));
             }, "3000");
         }
     }
