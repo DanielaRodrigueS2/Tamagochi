@@ -1,20 +1,23 @@
 .Drag {
-    height: 350px;
-    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
 
 }
 
 .DndMenu {
-    height: 100px !important;
-    display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .ItensMenu{
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin-top: 20px;
     
