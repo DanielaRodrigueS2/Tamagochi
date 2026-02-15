@@ -1,5 +1,4 @@
 import './MenuLateralSwiper.css'
-import {DndContext, closestCorners} from '@dnd-kit/core'
 import Item from './Item';
 // Mudar para Grid
 
