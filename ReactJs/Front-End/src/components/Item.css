@@ -3,4 +3,9 @@
     width: 80px;
     object-fit: contain;
     margin-top: 20px;
+    cursor: grab;
+}
+
+.item:active{
+    cursor: grabbing;
 }
