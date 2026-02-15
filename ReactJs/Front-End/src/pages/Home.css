@@ -48,6 +48,8 @@
     border-top-width: 0px;
     border-color: black;
     border-style: solid;
+    border-right-width: 3px;
+    border-left-width: 3px;
     flex-direction: column;
 
 }
