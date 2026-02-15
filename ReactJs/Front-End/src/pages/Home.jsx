@@ -5,7 +5,7 @@ import Status from '../components/Status';
 import MenuLateral from '../components/MenuLateral';
 import Login from '../components/Login';
 import Registro from '../components/Registro'
-import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad} from 'react-icons/fa';
+import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun} from 'react-icons/fa';
 import { use, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 
@@ -74,6 +74,9 @@ function Home(){
 
     return(
         <div className='estrutura'>
+
+            <Botao Icon={FaRegSun} className='BotaoConfiguracoes'></Botao>
+
             <DndContext onDragEnd={handleDragEnd}>
                 <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
                     <div className='menuTop'> 
