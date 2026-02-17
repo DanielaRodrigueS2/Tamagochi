@@ -5,7 +5,7 @@ import Status from '../components/Status';
 import MenuLateral from '../components/MenuLateral';
 import Login from '../components/Login';
 import Registro from '../components/Registro'
-import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun} from 'react-icons/fa';
+import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun, FaGithub, FaLinkedin} from 'react-icons/fa';
 import { use, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 
@@ -77,6 +77,8 @@ function Home(){
 
             <header>
                 <Botao Icon={FaRegSun} className='botaoConfiguracoes'></Botao>
+                <Botao Icon={FaGithub} className='botaoGitHub'></Botao>
+                <Botao Icon={FaLinkedin} className='botaoLinkedin'></Botao>
             </header>
 
             <div className='menusTamagochi'>
@@ -106,6 +108,10 @@ function Home(){
                 </DndContext>
                 
             </div>
+
+            <footer>
+            
+            </footer>
 
             {menuLogin && (
                 <Login armazenaToken={armazenaToken} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>
