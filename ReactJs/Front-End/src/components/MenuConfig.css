@@ -1,11 +1,11 @@
-.MenuConfig{    
+.menuConfig{    
     position: fixed;
     display: flex;
-    width: 30%;
+    width: 25%;
     height: 55%;
     background-color: rgb(84, 174, 190);
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
     border-color: black;
     border-radius: 20px;
@@ -13,4 +13,24 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+.menuConfig button{
+    display: flex;
+    height: 10%;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.menuConfig button:hover{
+    background: #829aa3;
+}
+
+.menuConfig button:active{
+    background: #829aa3;
+    top: 10px;
 }

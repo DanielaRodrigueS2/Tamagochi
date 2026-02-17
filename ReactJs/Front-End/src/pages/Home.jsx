@@ -15,6 +15,7 @@ function Home(){
     const [botaoApertado, setBotaoApertado] = useState('');
     const [menuLogin, setMenuLogin] = useState(true);
     const [menuRegistro, setMenuRegistro] = useState(false);
+    const [menuConfig, setMenuConfig] = useState(false);
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
     const [isDropped, setIsDropped] = useState(false);
@@ -77,7 +78,7 @@ function Home(){
         <div className='estrutura'>
 
             <header className={`header ${menuLogin ? 'blurred' : ''}`}>
-                <Botao Icon={FaRegSun} className='botaoConfiguracoes'></Botao>
+                <Botao Icon={FaRegSun} className='botaoConfiguracoes' onClick={() => setMenuConfig(true)}></Botao>
                 <a href="https://github.com/DanielaRodrigueS2" target='_blank' rel="noopener noreferrer"> <Botao Icon={FaGithub} className='botaoGitHub'></Botao></a>
                 <a href="https://www.linkedin.com/in/daniela-rodrigues-2b956b295/" target='_blank' rel="noopener noreferrer"> <Botao Icon={FaLinkedin} className='botaoLinkedin'></Botao></a>
             </header>
@@ -119,6 +120,10 @@ function Home(){
                 <Registro setMenu={setMenuRegistro} setMenuLog={setMenuLogin}></Registro>
             )}
             
+            {menuConfig && (
+                <MenuConfig setMenu={setMenuConfig} ></MenuConfig>
+            )}
+
         </div>
         
     )
