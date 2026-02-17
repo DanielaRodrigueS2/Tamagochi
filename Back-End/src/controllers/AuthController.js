@@ -1,6 +1,5 @@
 const User = require('../models/UserModel');
 const Tamagochi = require('../models/TamagochiModel');
-const Tamagochi = require('../models/TamagochiModel');
 const jwt = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
 
