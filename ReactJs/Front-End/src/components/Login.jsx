@@ -1,11 +1,14 @@
 import './Login.css'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
 
 function Login(props){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
+
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -31,8 +34,13 @@ function Login(props){
             const dados = await resposta.json();
             const token = dados.token;
             const user = dados.usuario;
+            const tamagochi = dados.tamagochi;
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('tamagochi', JSON.stringify(tamagochi))
             props.armazenaToken(token);
+
+            dispatch(carregarTamagochi(tamagochi));
+
             props.setMenu(false);
 
         }

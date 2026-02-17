@@ -42,6 +42,17 @@ const tamagochiSlice = createSlice({
         redefinir: (state) =>{
             Object.assign(state, initialState);
         },
+        carregarTamagochi: (state, actions) =>{
+            const {nome, fome, energia, felicidade, cliques, sprite} = actions.payload;
+
+            state.nome = nome;
+            state.fome = fome;
+            state.energia = energia;
+            state.felicidade = felicidade;
+            state.cliques = cliques;
+            state.sprite = sprite;
+
+        },
         incrementar: (state) =>{
             state.cliques += 1;
         }
