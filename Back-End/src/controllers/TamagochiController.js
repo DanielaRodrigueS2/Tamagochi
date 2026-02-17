@@ -28,9 +28,10 @@ exports.getAllTamagochis = async (req, res) =>{
 }
 
 exports.getTamagochiById = async (req, res) =>{
-    const id = req.params.id;
     try{
-        const tamagochi = await Tamagochi.findById(id);
+        const tamagochi = await Tamagochi.findOne({
+            responsavel: req.user.id
+        });
         if(!tamagochi){
             return res.status(404).json({error: 'Tamagochi nao foi encontrado'});
         }
@@ -43,11 +44,10 @@ exports.getTamagochiById = async (req, res) =>{
 }
 
 exports.updateTamagochi = async (req, res) =>{
-    const id = req.params.id;
     const {nome, fome, energia, felicidade, sprite} = req.body;
 
     try{
-        const tamagochiUpdate = await Tamagochi.findByIdAndUpdate(id, {nome,fome,energia,felicidade,sprite}, {new: true});
+        const tamagochiUpdate = await Tamagochi.findOneAndUpdate({responsavel: req.user.id}, {nome,fome,energia,felicidade,cliques, sprite}, {new: true});
         if(!tamagochiUpdate){
             return res.status(404).json({erorr: 'Tamagochi não encontrado'})
         }

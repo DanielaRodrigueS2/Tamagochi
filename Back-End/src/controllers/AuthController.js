@@ -1,4 +1,5 @@
 const User = require('../models/UserModel');
+const Tamagochi = require('../models/TamagochiModel');
 const jwt = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
 
@@ -15,6 +16,13 @@ exports.register = async (req, res) =>{
         const novoUsuario = new User({nome, email, senha});
         await novoUsuario.save();
 
+        const novoTamagochi = new Tamagochi({
+            nome: 'Tamagochi',
+            responsavel: novoUsuario._id
+        })
+
+        await novoTamagochi.save();
+
         res.status(201).json({message: 'Usuário foi criado com sucesso :3'});
     }
     catch(erro){
@@ -28,7 +36,7 @@ exports.login = async (req,res) =>{
 
     try{
         const usuario = await User.findOne({email});
-        if(!usuario) return res.status(400).josn({erro: 'Email não encontrado'})
+        if(!usuario) return res.status(400).json({erro: 'Email não encontrado'})
 
         const senhaCorreta = await usuario.compararSenha(senha);
         if(!senhaCorreta) return res.status(400).json({erro: 'Senha incorreta'});

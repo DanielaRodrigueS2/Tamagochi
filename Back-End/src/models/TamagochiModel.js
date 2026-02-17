@@ -5,7 +5,7 @@ const tamagochiData = new mongoose.Schema({
     fome: {type: Number, default: 50},
     energia: {type: Number, default: 50},
     felicidade: {type: Number, default: 50},
-    sprite: {type: Number, default: 0},
+    sprite: {type: String, default: 'Ovo_normal.gif'},
     cliques: {type: Number, default: 0},
     responsavel: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
