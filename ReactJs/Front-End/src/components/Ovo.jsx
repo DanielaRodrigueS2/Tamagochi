@@ -50,7 +50,7 @@ function Ovo({ultimoItem}){
  
 
     return(
-        <div ref={setNodeRef} style={style}>
+        <div ref={setNodeRef} style={style} className='Ovo_Principal'>
             <img src={`Sprites/${sprite}`} alt="Ovo" className="Ovo_normal" onClick={verificaCliques}/>
         </div>
         

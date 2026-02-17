@@ -75,9 +75,9 @@ function Home(){
     return(
         <div className='estrutura'>
 
-            <Botao Icon={FaRegSun} className='BotaoConfiguracoes'></Botao>
+            <Botao Icon={FaRegSun} className='botaoConfiguracoes'></Botao>
 
-            <DndContext onDragEnd={handleDragEnd}>
+            <DndContext onDragEnd={handleDragEnd} className='areaArrastavel'>
                 <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
                     <div className='menuTop'> 
                         <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>

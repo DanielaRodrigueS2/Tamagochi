@@ -1,6 +1,14 @@
+.Ovo_Principal{
+    display: flex;
+    height: 80%;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
 .Ovo_normal{
     display: flex;
-    width: 256px;
+    width: 50%;
     height: auto;
     image-rendering: pixelated;
     position: relative;

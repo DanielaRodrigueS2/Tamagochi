@@ -12,14 +12,20 @@
     pointer-events: none;
 }
 
+.botaoConfiguracoes{
+    display: flex;
+    justify-self: start;
+}
+
 .principal{
     display: flex;
     width: 70%;
-    height: 100%;
+    height: 80%;
     background: rgb(243, 248, 243, 0.5);
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 .menuTop{
@@ -40,7 +46,7 @@
 .tela{
     display: flex;
     width: 60%;
-    height: 40%;
+    height: 60%;
     background-color: rgb(84, 174, 190);
     align-items: center;
     justify-content: center;
