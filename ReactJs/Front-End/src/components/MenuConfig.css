@@ -24,6 +24,8 @@
     cursor: pointer;
     border-radius: 20px;
     border: 2px solid black;
+    transition: all 0.2s ease;
+    position: relative;
 }
 
 .menuConfig button:hover{
@@ -32,5 +34,5 @@
 
 .menuConfig button:active{
     background: #829aa3;
-    top: 10px;
+    top: 5px;
 }

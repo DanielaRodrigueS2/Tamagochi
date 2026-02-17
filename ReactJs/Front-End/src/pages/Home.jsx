@@ -121,7 +121,7 @@ function Home(){
             )}
             
             {menuConfig && (
-                <MenuConfig setMenu={setMenuConfig} ></MenuConfig>
+                <MenuConfig setMenu={setMenuConfig}  setMenuLog={setMenuLogin} ></MenuConfig>
             )}
 
         </div>
