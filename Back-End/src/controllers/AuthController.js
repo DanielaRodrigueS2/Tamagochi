@@ -1,5 +1,6 @@
 const User = require('../models/UserModel');
 const Tamagochi = require('../models/TamagochiModel');
+const Tamagochi = require('../models/TamagochiModel');
 const jwt = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
 
@@ -48,7 +49,22 @@ exports.login = async (req,res) =>{
 
         );
 
-        res.json({token, usuario:{id: usuario._id, nome: usuario.nome}})
+        let tamagochi = await Tamagochi.findOne({
+            responsavel: usuario._id
+        })
+
+        if(!tamagochi){
+            let novoTamagochi = new Tamagochi({
+                nome: 'Tamagochi',
+                responsavel: usuario._id
+            })
+
+            await novoTamagochi.save();
+        }
+
+
+
+        res.json({token, usuario:{id: usuario._id, nome: usuario.nome}, tamagochi})
     }
     catch(erro){
         console.log(erro);
