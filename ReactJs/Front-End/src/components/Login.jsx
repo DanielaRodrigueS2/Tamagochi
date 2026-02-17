@@ -1,6 +1,7 @@
 import './Login.css'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { carregarTamagochi } from '../redux/tamagochiSlice';
 
 function Login(props){
 
