@@ -6,6 +6,7 @@ const tamagochiData = new mongoose.Schema({
     energia: {type: Number, default: 50},
     felicidade: {type: Number, default: 50},
     sprite: {type: Number, default: 0},
+    cliques: {type: Number, default: 0},
     responsavel: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
