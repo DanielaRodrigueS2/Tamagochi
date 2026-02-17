@@ -109,9 +109,6 @@ function Home(){
                 
             </div>
 
-            <footer>
-            
-            </footer>
 
             {menuLogin && (
                 <Login armazenaToken={armazenaToken} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>
