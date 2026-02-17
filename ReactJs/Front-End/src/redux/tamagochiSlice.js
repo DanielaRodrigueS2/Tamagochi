@@ -60,6 +60,6 @@ const tamagochiSlice = createSlice({
     }
 });
 
-export const {usarItem, alterarSprite, redefinir, incrementar} = tamagochiSlice.actions;
+export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi} = tamagochiSlice.actions;
 export default tamagochiSlice.reducer;
 
