@@ -1,8 +1,8 @@
 .Registro{
     position: fixed;
     display: flex;
-    width: 30%;
-    height: 55%;
+    width: 20%;
+    height: 45%;
     background-color: rgb(84, 174, 190);
     align-items: center;
     justify-content: space-around;
@@ -19,15 +19,14 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-around;
     width: 70%;
-    height: 70%;
+    height: 60%;
 }
 
 .Registro .formsRegistro label{
     display: flex;
     margin-bottom: 5px;
-    font-size: large;
 }
 
 .Registro  .formsRegistro input{
@@ -38,34 +37,35 @@
 }
 
 .Registro  .formsRegistro button{
+    display: flex;
     height: 10%;
     justify-self: center;
     align-self: center;
-    font-size: large;
+    justify-content: center;
+    align-items: center;
 }
 
 .Base{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 30%;
-    width: 30%;
+    height: 20%;
+    width: 70%;
 }
 
 .botaoToLogin{
     display: flex;
-    height: 20%;
-    width: 80%;
+    height: 30%;
+    width: 60%;
     align-self: center;
     align-items: center;
     justify-content: center;
     justify-self: flex-start;
-    font-size: large;
 }
 
 
 .MsgErro{
     display: flex;
-    height: 20%;
+    height: 10%;
     color: red;
 }
