@@ -5,6 +5,7 @@ import Status from '../components/Status';
 import MenuLateral from '../components/MenuLateral';
 import Login from '../components/Login';
 import Registro from '../components/Registro'
+import MenuConfig from '../components/MenuConfig';
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun, FaGithub, FaLinkedin} from 'react-icons/fa';
 import { use, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
@@ -13,7 +14,7 @@ function Home(){
 
     const [botaoApertado, setBotaoApertado] = useState('');
     const [menuLogin, setMenuLogin] = useState(true);
-    const [menuRegistro, setMenuRegistro] = useState(false)
+    const [menuRegistro, setMenuRegistro] = useState(false);
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
     const [isDropped, setIsDropped] = useState(false);
