@@ -75,10 +75,10 @@ function Home(){
     return(
         <div className='estrutura'>
 
-            <header>
+            <header className={`header ${menuLogin ? 'blurred' : ''}`}>
                 <Botao Icon={FaRegSun} className='botaoConfiguracoes'></Botao>
-                <Botao Icon={FaGithub} className='botaoGitHub'></Botao>
-                <Botao Icon={FaLinkedin} className='botaoLinkedin'></Botao>
+                <a href="https://github.com/DanielaRodrigueS2" target='_blank' rel="noopener noreferrer"> <Botao Icon={FaGithub} className='botaoGitHub'></Botao></a>
+                <a href="https://www.linkedin.com/in/daniela-rodrigues-2b956b295/" target='_blank' rel="noopener noreferrer"> <Botao Icon={FaLinkedin} className='botaoLinkedin'></Botao></a>
             </header>
 
             <div className='menusTamagochi'>
