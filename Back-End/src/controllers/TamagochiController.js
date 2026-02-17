@@ -6,7 +6,7 @@ exports.createTamagochi = async (req,res) =>{
     const userId = req.user.id;
 
     try{
-        const tamagochi = new Tamagochi({nome, fome, energia, felicidade, sprite, responsavel: userId});
+        const tamagochi = new Tamagochi({nome, fome, energia, felicidade, sprite, cliques, responsavel: userId});
         const tamagochiCriado = await tamagochi.save();
 
         await User.findByIdAndUpdate(userId, {tamagochi: tamagochiCriado._id});
