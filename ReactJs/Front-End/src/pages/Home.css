@@ -1,6 +1,6 @@
 .estrutura{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     align-items: center;
@@ -14,13 +14,18 @@
 
 .botaoConfiguracoes{
     display: flex;
-    justify-self: start;
+}
+
+.menusTamagochi{
+    display: flex;
+    height: 80%;
+    width: 100%;
 }
 
 .principal{
     display: flex;
     width: 70%;
-    height: 80%;
+    height: 100%;
     background: rgb(243, 248, 243, 0.5);
     align-items: center;
     flex-direction: column;

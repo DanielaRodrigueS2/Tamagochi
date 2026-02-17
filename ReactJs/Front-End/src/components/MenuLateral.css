@@ -1,7 +1,9 @@
 .Principal{
     display: flex;
+    align-self: center;
+    justify-self: center;
     width: 20%;
-    height: 65%;
+    height: 86%;
     background-color: rgb(84, 174, 190);
     align-items: center;
     justify-content: center;

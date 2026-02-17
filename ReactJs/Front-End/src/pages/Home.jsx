@@ -75,34 +75,38 @@ function Home(){
     return(
         <div className='estrutura'>
 
-            <Botao Icon={FaRegSun} className='botaoConfiguracoes'></Botao>
+            <header>
+                <Botao Icon={FaRegSun} className='botaoConfiguracoes'></Botao>
+            </header>
 
-            <DndContext onDragEnd={handleDragEnd} className='areaArrastavel'>
-                <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
-                    <div className='menuTop'> 
-                        <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
-                        <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comidas')}/>
-                        <Botao Icon={FaFutbol} onClick={()=> setBotaoApertado('Brinquedos')}/>
+            <div className='menusTamagochi'>
+                <DndContext onDragEnd={handleDragEnd}>
+                    <div className={`principal ${menuLogin ? 'blurred' : ''}`}>
+                        <div className='menuTop'> 
+                            <Botao Icon={FaEgg} onClick={()=> setBotaoApertado('Ovos')}/>
+                            <Botao Icon={FaHamburger} onClick={()=> setBotaoApertado('Comidas')}/>
+                            <Botao Icon={FaFutbol} onClick={()=> setBotaoApertado('Brinquedos')}/>
+                        </div>
+
+                        <div className='tela'>
+                            <Status></Status>
+                            <Ovo ultimoItem={ultimoItem}></Ovo>
+                        </div>
+
+                        <div className='menuBottom'>
+                            <Botao Icon={FaBath} onClick={()=> setBotaoApertado('Banho')}/>
+                            <Botao Icon={FaBed} onClick={()=> setBotaoApertado('Dormir')}/>
+                            <Botao Icon={FaGamepad} onClick={()=> setBotaoApertado('Jogos')}/>
+                        </div>
+
                     </div>
+                
+                    <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
 
-                    <div className='tela'>
-                        <Status></Status>
-                        <Ovo ultimoItem={ultimoItem}></Ovo>
-                    </div>
+                </DndContext>
+                
+            </div>
 
-                    <div className='menuBottom'>
-                        <Botao Icon={FaBath} onClick={()=> setBotaoApertado('Banho')}/>
-                        <Botao Icon={FaBed} onClick={()=> setBotaoApertado('Dormir')}/>
-                        <Botao Icon={FaGamepad} onClick={()=> setBotaoApertado('Jogos')}/>
-                    </div>
-
-                </div>
-            
-                <MenuLateral blur={menuLogin} menu = {botaoApertado} ></MenuLateral>
-
-            </DndContext>
-            
-            
             {menuLogin && (
                 <Login armazenaToken={armazenaToken} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>
             )}
