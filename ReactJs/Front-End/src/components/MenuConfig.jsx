@@ -11,23 +11,23 @@ function MenuConfig(props){
         props.setMenuLog(true);
     }
 
-    const updateTamagochi = () =>{
-        console.log(tamagochi);
+    const updateTamagochi = async () =>{
         try{
-            fetch(`http://3000/tamagochi`,{
-                method: 'PATCH',
+            const resposta = await fetch(`http://localhost:3000/tamagochi`,{
+                method: 'PUT',
                 headers:{
-                    'Content-Type' : 'applications/json',
+                    'Content-Type' : 'application/json',
                     'Authorization' : `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify(tamagochi)
-            });
+                body: JSON.stringify(tamagochi)});
 
+            const data = await resposta.json();
+            console.log(resposta);
             console.log('Salvo com sucesso');
 
         }
             catch(error){
-                console.log('Erro ao salvar')
+                console.log('Erro ao salvar', error);
         }
 
 

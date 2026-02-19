@@ -2,7 +2,7 @@ const Tamagochi = require('../models/TamagochiModel');
 const User = require('../models/UserModel');
 
 exports.createTamagochi = async (req,res) =>{
-    const {nome, fome, energia, felicidade, sprite} = req.body;
+    const {nome, fome, energia, felicidade, sprite, cliques} = req.body;
     const userId = req.user.id;
 
     try{
@@ -19,7 +19,7 @@ exports.createTamagochi = async (req,res) =>{
 
 exports.getAllTamagochis = async (req, res) =>{
     try{
-        const tamagochis = await Tamagochi.findById();
+        const tamagochis = await Tamagochi.find();
         res.json(tamagochis)
     }
     catch(error){
@@ -44,7 +44,7 @@ exports.getTamagochiById = async (req, res) =>{
 }
 
 exports.updateTamagochi = async (req, res) =>{
-    const {nome, fome, energia, felicidade, sprite} = req.body;
+    const {nome, fome, energia, felicidade, sprite, cliques} = req.body;
 
     try{
         const tamagochiUpdate = await Tamagochi.findOneAndUpdate({responsavel: req.user.id}, {nome,fome,energia,felicidade,cliques, sprite}, {new: true});

@@ -36,6 +36,7 @@ function Login(props){
             const token = dados.token;
             const user = dados.usuario;
             const tamagochi = dados.tamagochi;
+            console.log(tamagochi);
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('tamagochi', JSON.stringify(tamagochi))
             props.armazenaToken(token);
