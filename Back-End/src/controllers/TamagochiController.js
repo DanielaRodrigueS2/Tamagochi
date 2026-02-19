@@ -60,10 +60,9 @@ exports.updateTamagochi = async (req, res) =>{
 }
 
 exports.deleteTamagochi = async (req, res) =>{
-    const id = req.params.id;
 
     try{
-        const tamagochiApagado = await Tamagochi.findByIdAndRemove(id);
+        const tamagochiApagado = await Tamagochi.findOneAndDelete({responsavel: req.user.id});
         if(!tamagochiApagado){
             return res.status(404).json({error: 'Tamagochi não encontrado'});
         }
