@@ -94,7 +94,7 @@ function Home(){
 
                         <div className='tela'>
                             <Status></Status>
-                            <Ovo ultimoItem={ultimoItem}></Ovo>
+                            <Ovo ultimoItem={ultimoItem} setUltimo = {setUltimoItem}></Ovo>
                         </div>
 
                         <div className='menuBottom'>

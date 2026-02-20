@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { usarItem, alterarSprite, incrementar } from '../redux/tamagochiSlice';
 
-function Ovo({ultimoItem}){
+function Ovo(props){
 
     const dispatch = useDispatch();
     const cliques = useSelector(state => state.tamagochi.cliques);
@@ -25,19 +25,21 @@ function Ovo({ultimoItem}){
 
     const usouItem = () =>{
         dispatch(usarItem({
-            fome: ultimoItem.fome,
-            energia: ultimoItem.energia,
-            felicidade: ultimoItem.felicidade,
+            fome: props.ultimoItem.fome,
+            energia: props.ultimoItem.energia,
+            felicidade: props.ultimoItem.felicidade,
         }));
+
     }
 
 
     useEffect(() =>{
-        if(ultimoItem != null){
-            console.log(ultimoItem.fome, ultimoItem.energia, ultimoItem.felicidade);
+        if(props.ultimoItem != null){
+            console.log(props.ultimoItem.fome, props.ultimoItem.energia, props.ultimoItem.felicidade);
             usouItem();
+            props.setUltimo(null);
         }
-    }, [ultimoItem])
+    }, [props.ultimoItem])
 
  
     // Drag and drop
