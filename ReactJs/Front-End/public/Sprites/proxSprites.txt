@@ -1,6 +1,6 @@
 Novos Sprites a serem feitos:
 
-- Tubarao sujo
-- Tubarao Tomando Banho
-- Tubarao Doente
-- Tubarao feliz
+- Tubarao sujo -- feito
+- Tubarao Tomando Banho -- feito
+- Tubarao Doente -- feito
+- Tubarao feliz -- feito
