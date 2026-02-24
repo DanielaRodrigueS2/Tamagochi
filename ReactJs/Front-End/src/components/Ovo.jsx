@@ -7,10 +7,8 @@ import { usarItem, alterarSprite, incrementar } from '../redux/tamagochiSlice';
 function Ovo(props){
 
     const dispatch = useDispatch();
-    const tamagochi = useSelector(state => state.tamagochi);
     const cliques = useSelector(state => state.tamagochi.cliques);
     const sprite = useSelector(state => state.tamagochi.sprite);
-    const [intervalo, setIntervalo] = useState(60000);
 
     const verificaCliques = () =>{
         dispatch(incrementar());
@@ -52,49 +50,7 @@ function Ovo(props){
         color: isOver ? 'green' :undefined,
     }; 
 
-    // Função de update automatico
-    const updateTamagochi = async () =>{
-        try{
-            const resposta = await fetch(`http://localhost:3000/tamagochi`,{
-                method: 'PUT',
-                headers:{
-                    'Content-Type' : 'application/json',
-                    'Authorization' : `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify(tamagochi)});
-
-            const data = await resposta.json();
-            console.log(resposta);
-            console.log('Salvo com sucesso');
-
-        }
-        catch(error){
-            console.log('Erro ao salvar', error);
-        }
-
-
-    }
-
-    // Use Effect para salvamento automatico
-    useEffect(() =>{
-        
-        const primeiraFuncao = () =>{
-            updateTamagochi();
-            novoIntervalo();
-        }
-
-        const timer = setTimeout(primeiraFuncao, intervalo);
-
-        return () => clearTimeout(timer);
-        
-    },[intervalo]);
-
-    // Funcao para resetar intervalo
-    const novoIntervalo = () =>{
-
-        const intervaloNovo = Math.floor(Math.random() * 500) + 60000;
-        setIntervalo(intervaloNovo);
-    }
+    
  
 
     return(
