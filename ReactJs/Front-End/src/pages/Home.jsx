@@ -6,6 +6,8 @@ import MenuLateral from '../components/MenuLateral';
 import Login from '../components/Login';
 import Registro from '../components/Registro'
 import MenuConfig from '../components/MenuConfig';
+import ScriptsTamagochi from '../components/ScriptsTamagochi';
+
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun, FaGithub, FaLinkedin} from 'react-icons/fa';
 import { use, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
@@ -123,6 +125,8 @@ function Home(){
             {menuConfig && (
                 <MenuConfig setMenu={setMenuConfig}  setMenuLog={setMenuLogin} ></MenuConfig>
             )}
+
+            <ScriptsTamagochi></ScriptsTamagochi>
 
         </div>
         
