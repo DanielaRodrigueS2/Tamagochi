@@ -12,7 +12,7 @@ function Status(props){
 
     const retornaCor = (valor) =>{
         if (valor >= 70) return 'green';
-        if (valor < 70 && valor >= 30) return 'orange';
+        if (valor < 70 && valor >= 30) return 'yellow';
         return 'red';
     }
 
