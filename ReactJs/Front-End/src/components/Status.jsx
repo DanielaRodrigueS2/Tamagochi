@@ -1,11 +1,13 @@
 import './Status.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SlEnergy } from "react-icons/sl";
 import { FaFish, FaGrin} from "react-icons/fa";
 import { useEffect, useState } from 'react';
+import { reducaoAutmatica } from '../redux/tamagochiSlice';
 
 function Status(props){
     
+    const dispatch = useDispatch();
     const fome = useSelector(state => state.tamagochi.fome);
     const energia = useSelector(state => state.tamagochi.energia)
     const alegria = useSelector(state => state.tamagochi.felicidade)
@@ -15,6 +17,14 @@ function Status(props){
         if (valor < 70 && valor >= 30) return 'yellow';
         return 'red';
     }
+
+    useEffect(() =>{
+        const timer = setInterval(()=>{
+            dispatch(reducaoAutmatica());
+        }, 8000)
+
+        return () => clearInterval(timer);
+    }, [dispatch]);
 
 
     useEffect(() =>{
