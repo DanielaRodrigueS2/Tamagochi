@@ -55,11 +55,15 @@ const tamagochiSlice = createSlice({
         },
         incrementar: (state) =>{
             state.cliques += 1;
+        },
+        reducaoAutmatica: (state) =>{
+            state.fome = Math.max(0, (state.fome -1));
+            state.felicidade = Math.max(0, (state.felicidade -1));
         }
 
     }
 });
 
-export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi} = tamagochiSlice.actions;
+export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi, reducaoAutmatica} = tamagochiSlice.actions;
 export default tamagochiSlice.reducer;
 
