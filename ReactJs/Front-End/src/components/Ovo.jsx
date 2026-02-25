@@ -24,19 +24,63 @@ function Ovo(props){
     }
 
     const usouItem = () =>{
+
         dispatch(usarItem({
             fome: props.ultimoItem.fome,
             energia: props.ultimoItem.energia,
             felicidade: props.ultimoItem.felicidade,
         }));
-        spriteTemporario();
+
+        console.log(props.ultimoItem.tipo);
+        switch (props.ultimoItem.tipo) {
+            case 1:
+            case 2:
+                spriteTemporarioComida();
+                break;
+            
+            case 3:
+                spriteTemporarioBanho();
+                break;
+
+            case 4:
+                spriteTemporarioDormir();
+                break;
+
+            case 5:
+                spriteTubaraoBrincar();
+                break;
+            default:
+                break;
+        }
+
     }
 
-    const spriteTemporario = () =>{
+    const spriteTemporarioComida = () =>{
         dispatch(alterarSprite('tubaraofeliz.gif'));
         setTimeout(() =>{
             dispatch(alterarSprite('tubaraoparado.gif'));
         }, 2000)
+    }
+
+    const spriteTemporarioBanho = () =>{
+        dispatch(alterarSprite('tubaraobanho.gif'));
+        setTimeout(() =>{
+            dispatch(alterarSprite('tubaraoparado.gif'));
+        },4000)
+    }
+
+    const spriteTemporarioDormir = () =>{
+        dispatch(alterarSprite('tubaraodormindo.gif'));
+        setTimeout(() =>{
+            dispatch(alterarSprite('tubaraoparado.gif'));
+        }, 6000)
+    }
+
+    const spriteTubaraoBrincar = () =>{
+        dispatch(alterarSprite('tubaraoenfeitado.gif'));
+        setTimeout(() =>{
+            dispatch(alterarSprite('tubaraoparado.gif'));
+        }, 4000)
     }
 
 
