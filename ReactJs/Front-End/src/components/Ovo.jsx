@@ -19,7 +19,7 @@ function Ovo(props){
 
             setTimeout(() => {
                 dispatch(alterarSprite('tubaraoparado.gif'));
-            }, "3000");
+            }, 3000);
         }
     }
 
@@ -29,7 +29,14 @@ function Ovo(props){
             energia: props.ultimoItem.energia,
             felicidade: props.ultimoItem.felicidade,
         }));
+        spriteTemporario();
+    }
 
+    const spriteTemporario = () =>{
+        dispatch(alterarSprite('tubaraofeliz.gif'));
+        setTimeout(() =>{
+            dispatch(alterarSprite('tubaraoparado.gif'));
+        }, 2000)
     }
 
 
