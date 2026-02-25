@@ -17,6 +17,14 @@
     
 }
 
+.barra{
+    background: #f3f3f3;
+}
+
+.barra::-webkit-progress-bar {
+    background: #f3f3f3;
+}
+
 .Icon{
     background-color: white;
     border-radius: 50%;

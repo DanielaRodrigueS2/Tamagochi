@@ -21,29 +21,25 @@ function Status(props){
     useEffect(() =>{
         const timer = setInterval(()=>{
             dispatch(reducaoAutmatica());
-        }, 8000)
+        }, 2000)
 
         return () => clearInterval(timer);
     }, [dispatch]);
 
 
-    useEffect(() =>{
-        console.log(fome, energia, alegria);
-    },[fome, energia, alegria])
-
     return(
         <div className='Status'>
             <div className='barras'>
                 <FaFish size={19} className='Icon'/>
-                <progress style={{accentColor: retornaCor(fome)}} className='barra' value={fome} max='100'></progress>
+                <progress style={{accentColor: retornaCor(fome)}}  title={`Fome: ${fome}`} className='barra' value={fome} max='100'></progress>
             </div>
             <div className='barras'>
                 <SlEnergy size={19} className='Icon'/>
-                <progress style={{accentColor: retornaCor(energia)}}  className='barra' value={energia} max='100'></progress>
+                <progress style={{accentColor: retornaCor(energia)}} title={`Energia: ${energia}`} className='barra' value={energia} max='100'></progress>
             </div>
             <div className='barras'>
                 <FaGrin size={19} className='Icon'/>
-                <progress  style={{accentColor: retornaCor(alegria)}} className='barra' value={alegria} max='100'></progress>
+                <progress  style={{accentColor: retornaCor(alegria)}} title={`Felicidade: ${alegria}`} className='barra' value={alegria} max='100'></progress>
             </div>
         </div>
     );
