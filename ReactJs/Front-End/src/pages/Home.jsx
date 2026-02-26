@@ -9,7 +9,7 @@ import MenuConfig from '../components/MenuConfig';
 import ScriptsTamagochi from '../components/ScriptsTamagochi';
 
 import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun, FaGithub, FaLinkedin} from 'react-icons/fa';
-import { use, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 
 function Home(){
@@ -22,6 +22,25 @@ function Home(){
     const [user, setUser] = useState(null);
     const [isDropped, setIsDropped] = useState(false);
     const [ultimoItem, setUltimoItem] = useState(null)
+
+    const audioRef = useRef(null);
+
+    const iniciarMusica = () =>{
+        if(audioRef.current){
+            audioRef.current.volume = 0.2;
+            audioRef.current.play().catch(() => {});
+        }
+    }
+
+    const pausarMusica = () =>{
+        if(audioRef.current){
+            audioRef.current.pause();
+        }
+    }
+
+    useEffect(() =>{
+        iniciarMusica();
+    }, [])
 
     //Função para armazenar o token no local storage
     const armazenaToken = (token) =>{
@@ -57,7 +76,7 @@ function Home(){
 
                 setUser(data);
                 setToken(tokenSalvo);
-                armazenaToken(token)
+                armazenaToken(tokenSalvo)
                 setMenuLogin(false);
 
                 }
@@ -127,6 +146,11 @@ function Home(){
             )}
 
             <ScriptsTamagochi></ScriptsTamagochi>
+
+            <audio  ref={audioRef} loop>
+                <source src='/audio/musicaFundo.mp3' type='audio/mpeg'></source>
+                nao suporta
+            </audio>
 
         </div>
         
