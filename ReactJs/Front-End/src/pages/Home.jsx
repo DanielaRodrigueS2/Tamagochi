@@ -27,7 +27,6 @@ function Home(){
 
     const iniciarMusica = () =>{
         if(audioRef.current){
-            audioRef.current.volume = 0.2;
             audioRef.current.play().catch(() => {});
         }
     }
@@ -149,7 +148,7 @@ function Home(){
 
             <audio  ref={audioRef} loop>
                 <source src='/audio/musicaFundo.mp3' type='audio/mpeg'></source>
-                nao suporta
+                seu browser nao suporta a música
             </audio>
 
         </div>
