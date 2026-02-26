@@ -2,7 +2,7 @@ import { useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Componente dedicado a exeução de scripts relacionados ao tamagochi
-function ScriptsTamagochi(){
+function ScriptsTamagochi({token}){
 
     const tamagochi = useSelector(state => state.tamagochi);
     const [intervalo, setIntervalo] = useState(60000);
@@ -33,6 +33,8 @@ function ScriptsTamagochi(){
     // Use Effect para salvamento automatico
     useEffect(() =>{
         
+        if (!token) return;
+        
         const primeiraFuncao = () =>{
             updateTamagochi();
             novoIntervalo();
@@ -42,7 +44,7 @@ function ScriptsTamagochi(){
 
         return () => clearTimeout(timer);
         
-    },[intervalo]);
+    },[intervalo, tamagochi]);
 
     // Funcao para resetar intervalo
     const novoIntervalo = () =>{

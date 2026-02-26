@@ -41,6 +41,7 @@ function Login(props){
             localStorage.setItem('tamagochi', JSON.stringify(tamagochi))
             props.armazenaToken(token);
 
+            props.iniciarMusica();
             dispatch(carregarTamagochi(tamagochi));
 
             props.setMenu(false);

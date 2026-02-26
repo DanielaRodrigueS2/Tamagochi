@@ -27,7 +27,7 @@ function Home(){
 
     const iniciarMusica = () =>{
         if(audioRef.current){
-            audioRef.current.play().catch(() => {});
+            audioRef.current.play().catch(() =>{});
         }
     }
 
@@ -36,10 +36,6 @@ function Home(){
             audioRef.current.pause();
         }
     }
-
-    useEffect(() =>{
-        iniciarMusica();
-    }, [])
 
     //Função para armazenar o token no local storage
     const armazenaToken = (token) =>{
@@ -74,7 +70,6 @@ function Home(){
                 const data = await res.json();
 
                 setUser(data);
-                setToken(tokenSalvo);
                 armazenaToken(tokenSalvo)
                 setMenuLogin(false);
 
@@ -133,7 +128,7 @@ function Home(){
 
 
             {menuLogin && (
-                <Login armazenaToken={armazenaToken} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>
+                <Login armazenaToken={armazenaToken} iniciarMusica = {iniciarMusica} setMenu={setMenuLogin} setMenuRegis={setMenuRegistro}></Login>
             )}
 
             {menuRegistro && (
@@ -144,7 +139,7 @@ function Home(){
                 <MenuConfig setMenu={setMenuConfig}  setMenuLog={setMenuLogin} ></MenuConfig>
             )}
 
-            <ScriptsTamagochi></ScriptsTamagochi>
+            <ScriptsTamagochi token={token} ></ScriptsTamagochi>
 
             <audio  ref={audioRef} loop>
                 <source src='/audio/musicaFundo.mp3' type='audio/mpeg'></source>
