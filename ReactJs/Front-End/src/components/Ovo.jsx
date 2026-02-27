@@ -13,7 +13,7 @@ function Ovo(props){
     const verificaCliques = () =>{
         dispatch(incrementar());
         console.log(cliques);
-        if (cliques >= 25 && sprite !== 'tubaraoparado.gif'){
+        if (cliques >= 25 && sprite == 'Ovo_normal.gif'){
 
             dispatch(alterarSprite('Ovo_rachando.gif'));
 
