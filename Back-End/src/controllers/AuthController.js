@@ -74,7 +74,7 @@ exports.login = async (req,res) =>{
 exports.validate = async (req, res) => {
 
     try{
-        const user = await User.findById(req.user.id).select("-senha");
+        const user = await User.findById(req.user.id).select("senha");
         if(!user){
             return res.status(404).json({error: 'Usuário não encontrado'});
         }
@@ -84,3 +84,18 @@ exports.validate = async (req, res) => {
         res.status(500).json({error: "Erro interno do server"});
     }
 };
+
+exports.resetPasswordRequest = async (req, res, next) =>{
+    const email = req.body;
+
+    try{
+        const user = await User.findOne({email});
+        if (!user) return res.status(404).json({mensagem: 'Usuário não encontrado'})
+
+        const chave = process.env.JWT_SECRET + user.senha;
+        const resetToken = jwt.sign({id: user._id, email: user.email}, chave, {expiresIn: '1h'})
+    }
+    catch(error){
+
+    }
+}
