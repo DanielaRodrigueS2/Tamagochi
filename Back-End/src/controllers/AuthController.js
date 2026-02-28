@@ -1,7 +1,11 @@
 const User = require('../models/UserModel');
 const Tamagochi = require('../models/TamagochiModel');
+const Token = require('../models/TokenModel');
 const jwt = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
+
+const crypto = require('crypto');
+const bycrypt = require('bcrypt');
 
 exports.register = async (req, res) =>{
     const erros = validationResult(req);
@@ -92,8 +96,20 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         const user = await User.findOne({email});
         if (!user) return res.status(404).json({mensagem: 'Usuário não encontrado'})
 
-        const chave = process.env.JWT_SECRET + user.senha;
-        const resetToken = jwt.sign({id: user._id, email: user.email}, chave, {expiresIn: '30m'})
+        const token = await Token.findOne({userId: user._id});
+        if(token) await token.deleteOne();
+
+        let tokenReset = crypto.randomBytes(32).toString('hex');
+        const hash = await bycrypt.hash(tokenReset, Number(bycryptSalt))
+
+        await new Token({
+            userId: user._id,
+            token: hash,
+            createdAt: Date.now(),
+        }.save());
+
+        const link= `${URL}/passwordReset?token=${tokenReset}&id=${user._id}`;
+        // função send mail / mailer
     }
     catch(error){
 
