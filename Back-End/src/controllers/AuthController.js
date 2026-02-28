@@ -93,7 +93,7 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         if (!user) return res.status(404).json({mensagem: 'Usuário não encontrado'})
 
         const chave = process.env.JWT_SECRET + user.senha;
-        const resetToken = jwt.sign({id: user._id, email: user.email}, chave, {expiresIn: '1h'})
+        const resetToken = jwt.sign({id: user._id, email: user.email}, chave, {expiresIn: '30m'})
     }
     catch(error){
 
