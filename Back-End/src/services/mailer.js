@@ -20,3 +20,5 @@ const enviarEmail = async (para, assunto, texto) =>{
     return trasposter.sendMail(mailOptions);
 
 }
+
+module.exports = enviarEmail;
