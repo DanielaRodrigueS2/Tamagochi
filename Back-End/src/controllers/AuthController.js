@@ -124,3 +124,35 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         });
     }
 }
+
+exports.resetPassword = async (req, res) =>{
+
+    const {id, token} = req.params;
+
+    const {senha} = req.body;
+
+    try{
+
+        let passwordResetToken = await Token.findOne({userId: userId});
+        if (!passwordResetToken) return res.status(404).json({erro: 'Token não expirado ou inválido'});
+
+        const verificacao = await bcrypt.compare(token, passwordResetToken.token);
+        if (!verificacao) return res.status(404).json({erro: 'Token não expirado ou inválido'});
+
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(senha, salt);
+
+        await User.updateOne(
+            {_id: userId},
+            {$set: {senha: hash}},
+            {new: true}
+        );
+
+        await passwordResetToken.deleteOne();
+        return res.status(200).json({message: 'Senha trocada com sucesso'});
+    }   
+    catch(error){
+        return res.status(500).json({error});
+    }
+
+}
