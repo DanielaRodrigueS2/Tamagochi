@@ -16,13 +16,14 @@ trasposter.use('compile', hbs({
     extName: '.html'
 }));
 
-const enviarEmail = async (para, assunto, texto) =>{
+const enviarEmail = async (para, link) =>{
 
     const mailOptions = {
         from: `'Tubagochi APP' <${process.env.EMAIL_USER}>,`,
         to: para,
-        subject: assunto,
-        text: texto
+        template: 'forgotPassword',
+        context: {link},
+
     };
 
     return trasposter.sendMail(mailOptions);
