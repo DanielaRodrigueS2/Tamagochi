@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const path = require('path');
+const hbs = require('nodemailer-express-handlebars')
 
 const trasposter = nodemailer.createTransport({
     service: "gmail",
@@ -7,6 +9,12 @@ const trasposter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS
     }
 })
+
+trasposter.use('compile', hbs({
+    viewEngine: 'handlebars',
+    viewPath: path.resolve('./src/recursos/email/'),
+    extName: '.html'
+}));
 
 const enviarEmail = async (para, assunto, texto) =>{
 
