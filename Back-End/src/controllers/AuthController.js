@@ -2,6 +2,7 @@ const User = require('../models/UserModel');
 const Tamagochi = require('../models/TamagochiModel');
 const Token = require('../models/TokenModel');
 const jwt = require('jsonwebtoken');
+const sendMail = require('../services/mailer');
 const {validationResult} = require('express-validator');
 
 const crypto = require('crypto');
@@ -109,7 +110,7 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         }.save());
 
         const link= `${URL}/passwordReset?token=${tokenReset}&id=${user._id}`;
-        // função send mail / mailer
+        sendMail(email, link);
     }
     catch(error){
 
