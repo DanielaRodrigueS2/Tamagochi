@@ -6,7 +6,8 @@ const sendMail = require('../services/mailer');
 const {validationResult} = require('express-validator');
 
 const crypto = require('crypto');
-const bycrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
+const URL = process.env.CLIENT_URL;
 
 exports.register = async (req, res) =>{
     const erros = validationResult(req);
@@ -91,7 +92,7 @@ exports.validate = async (req, res) => {
 };
 
 exports.resetPasswordRequest = async (req, res, next) =>{
-    const email = req.body;
+    const {email} = req.body;
 
     try{
         const user = await User.findOne({email});
@@ -101,18 +102,20 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         if(token) await token.deleteOne();
 
         let tokenReset = crypto.randomBytes(32).toString('hex');
-        const hash = await bycrypt.hash(tokenReset, Number(bycryptSalt))
+        const hash = await bcrypt.hash(tokenReset, Number(bcryptSalt))
 
         await new Token({
             userId: user._id,
             token: hash,
             createdAt: Date.now(),
-        }.save());
+        }).save();
 
         const link= `${URL}/passwordReset?token=${tokenReset}&id=${user._id}`;
-        sendMail(email, link);
+        await sendMail(user.email, link);
+
+        return res.status(200).json({mensagem: 'Email enviado com sucesso'});
     }
     catch(error){
-
+        return res.status(400).json({erro: error})
     }
 }
