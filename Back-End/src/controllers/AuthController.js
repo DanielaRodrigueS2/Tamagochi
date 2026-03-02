@@ -7,6 +7,7 @@ const {validationResult} = require('express-validator');
 
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
+const { stack } = require('../app');
 const URL = process.env.CLIENT_URL;
 
 exports.register = async (req, res) =>{
@@ -102,7 +103,7 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         if(token) await token.deleteOne();
 
         let tokenReset = crypto.randomBytes(32).toString('hex');
-        const hash = await bcrypt.hash(tokenReset, Number(bcryptSalt))
+        const hash = await bcrypt.hash(tokenReset, 10)
 
         await new Token({
             userId: user._id,
@@ -116,6 +117,10 @@ exports.resetPasswordRequest = async (req, res, next) =>{
         return res.status(200).json({mensagem: 'Email enviado com sucesso'});
     }
     catch(error){
-        return res.status(400).json({erro: error})
+        console.error(error)
+        return res.status(500).json({
+            message: error.message,
+            stack: error.stack
+        });
     }
 }
