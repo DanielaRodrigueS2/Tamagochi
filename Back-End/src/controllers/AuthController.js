@@ -133,7 +133,9 @@ exports.resetPassword = async (req, res) =>{
 
     try{
 
-        let passwordResetToken = await Token.findOne({userId: userId});
+        
+
+        let passwordResetToken = await Token.findOne({userId: id});
         if (!passwordResetToken) return res.status(404).json({erro: 'Token não expirado ou inválido'});
 
         const verificacao = await bcrypt.compare(token, passwordResetToken.token);
@@ -143,7 +145,7 @@ exports.resetPassword = async (req, res) =>{
         const hash = await bcrypt.hash(senha, salt);
 
         await User.updateOne(
-            {_id: userId},
+            {_id: id},
             {$set: {senha: hash}},
             {new: true}
         );

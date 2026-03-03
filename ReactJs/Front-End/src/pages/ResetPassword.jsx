@@ -5,7 +5,7 @@ import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
 
 function ResetPassword(){
 
-    const [erro, setErro] =useState('erro');
+    const [erro, setErro] =useState('');
     const [senha, setSenha] = useState('')
 
     const [searchParams] = useSearchParams()
@@ -16,6 +16,9 @@ function ResetPassword(){
 
 
     const handleSubmit = async (e) =>{
+        
+        e.preventDefaut();
+
         if (!senha) {
             setErro('senha inválida');
             return;
@@ -32,6 +35,8 @@ function ResetPassword(){
                 body: JSON.stringify(payload)
             });
 
+            const data = await resposta.json();
+
             if(!resposta.ok){
                 const erro = await resposta.json();
                 setErro(erro.error || 'Erro inesperado');
@@ -39,12 +44,11 @@ function ResetPassword(){
                 return;
             }
 
-            const mensagem = await resposta.json();
-            alert(mensagem);
+            alert(data.message);
             navigate('/')
         }
         catch(erro){
-
+            console.log(erro);
         }
 
     }
@@ -52,10 +56,11 @@ function ResetPassword(){
     return(
         <div className="ResetPassword">
             <form onSubmit={handleSubmit}>
-                <label onChange={(e) => setSenha(e.target.value)}>Nova Senha</label>
-                <input type="password"></input>
+                <label>Nova Senha</label>
+                <input onChange={(e) => setSenha(e.target.value)} value={senha} type="password"></input>
                 <p>{erro}</p>
                 <button type="submit">Alterar Senha</button>
+                <button  type='button' onClick={() => navigate('/')}>Voltar</button>
             </form>
         </div>
     )

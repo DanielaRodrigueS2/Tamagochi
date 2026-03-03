@@ -9,7 +9,7 @@ function Login(props){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [erro, setErro] = useState('a');
+    const [erro, setErro] = useState('');
 
     const dispatch = useDispatch();
 
@@ -74,7 +74,7 @@ function Login(props){
             </form>
             <div className='Base'>
                 <h3 className='MsgErro'>{erro}</h3>
-                <button className='EsqueciSenha' onClick={() => navigate('/passwordReset')}>Esqueci a senha</button>
+                <button className='EsqueciSenha' onClick={() => navigate('/passwordResetRequest')}>Esqueci a senha</button>
                 <button onClick={Cadastrar} className='RealizarCadastro'>Realizar Cadastro</button>
             </div>
         </div>
