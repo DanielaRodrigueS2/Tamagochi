@@ -3,13 +3,17 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { carregarTamagochi } from '../redux/tamagochiSlice';
 
+import { useNavigate } from 'react-router-dom';
+
 function Login(props){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [erro, setErro] = useState('');
+    const [erro, setErro] = useState('a');
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -70,6 +74,7 @@ function Login(props){
             </form>
             <div className='Base'>
                 <h3 className='MsgErro'>{erro}</h3>
+                <button className='EsqueciSenha' onClick={() => navigate('/passwordReset')}>Esqueci a senha</button>
                 <button onClick={Cadastrar} className='RealizarCadastro'>Realizar Cadastro</button>
             </div>
         </div>
