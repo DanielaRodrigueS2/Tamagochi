@@ -133,7 +133,9 @@ exports.resetPassword = async (req, res) =>{
 
     try{
 
-        
+        if (!senha || senha.lenght < 6){
+            return res.status(400).json({erro: 'Senha muito curta'});
+        }
 
         let passwordResetToken = await Token.findOne({userId: id});
         if (!passwordResetToken) return res.status(404).json({erro: 'Token não expirado ou inválido'});
