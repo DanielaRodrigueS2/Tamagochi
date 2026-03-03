@@ -17,7 +17,7 @@ function ResetPassword(){
 
     const handleSubmit = async (e) =>{
         
-        e.preventDefaut();
+        e.preventDefault();
 
         if (!senha) {
             setErro('senha inválida');
