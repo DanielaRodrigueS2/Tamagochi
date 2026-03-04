@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 function MenuConfig(props){
 
     const tamagochi = useSelector(state => state.tamagochi);
+    const [musica, setMusica] = useState(true);
 
     const menuLogin = () =>{
         props.setMenu(false);
@@ -33,12 +34,25 @@ function MenuConfig(props){
 
     }
 
+    const gerenciaMusica = () =>{
+        console.log(musica);
+        if (musica){
+            props.setMusicaOn();
+            setMusica(false);
+        }
+        if(!musica){
+            props.setMusicaOff();
+            setMusica(true);
+        }
+    }
+
     return(
         <div className='menuConfig'>
             <h1>Configurações</h1>
             <button onClick={updateTamagochi}>Salvar</button>
             <button>Reiniciar</button>
             <button onClick={menuLogin}>Tela de Login</button>
+            <button onClick={gerenciaMusica}>Musica</button>
             <button onClick={() => props.setMenu(false)}>Fechar Menu</button>
         </div>
     );

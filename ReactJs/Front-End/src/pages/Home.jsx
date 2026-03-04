@@ -136,7 +136,7 @@ function Home(){
             )}
             
             {menuConfig && (
-                <MenuConfig setMenu={setMenuConfig}  setMenuLog={setMenuLogin} ></MenuConfig>
+                <MenuConfig setMenu={setMenuConfig}  setMenuLog={setMenuLogin}  setMusicaOn = {iniciarMusica} setMusicaOff = {pausarMusica}></MenuConfig>
             )}
 
             <ScriptsTamagochi token={token} ></ScriptsTamagochi>
