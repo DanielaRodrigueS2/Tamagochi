@@ -20,7 +20,7 @@ Um projeto fullstack de Tamagotchi feito com **React**, **Node.js** e **MongoDB 
 - [Context API + Reducer] para gerenciamento de estado
 
 ### Docker
-- [Docker] (https://hub.docker.com)
+- [Docker](https://hub.docker.com)
 - Utilização de containers para virtualização
 
   
