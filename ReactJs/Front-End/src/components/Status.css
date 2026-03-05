@@ -18,11 +18,26 @@
 }
 
 .barra{
-    background: #f3f3f3;
+    display: flex;
+    width: 70%;
+    height: 35%;
+    border-radius: 10px;
+    background-color: white;
+    border-color: black;
+    border: 1px solid #ccc;
 }
+
+.barraValor{
+    display: flex;
+    height: 100%;
+    border-radius: 9px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
 
 .barra::-webkit-progress-bar {
     background: #f3f3f3;
+
 }
 
 .Icon{

@@ -9,19 +9,20 @@ function Status(props){
     
     const dispatch = useDispatch();
     const fome = useSelector(state => state.tamagochi.fome);
-    const energia = useSelector(state => state.tamagochi.energia)
-    const alegria = useSelector(state => state.tamagochi.felicidade)
+    const energia = useSelector(state => state.tamagochi.energia);
+    const alegria = useSelector(state => state.tamagochi.felicidade);
+    const sprite = useSelector(state => state.tamagochi.sprite);
 
     const retornaCor = (valor) =>{
         if (valor >= 70) return 'green';
-        if (valor < 70 && valor >= 30) return 'yellow';
+        if (valor < 70 && valor >= 30) return '#e6ba1c';
         return 'red';
     }
 
     useEffect(() =>{
         const timer = setInterval(()=>{
             dispatch(reducaoAutmatica());
-        }, 2000)
+        }, 4000)
 
         return () => clearInterval(timer);
     }, [dispatch]);
@@ -31,15 +32,21 @@ function Status(props){
         <div className='Status'>
             <div className='barras'>
                 <FaFish size={19} className='Icon'/>
-                <progress style={{accentColor: retornaCor(fome)}}  title={`Fome: ${fome}`} className='barra' value={fome} max='100'></progress>
+                <div title={`Fome: ${fome}`} className='barra' value={fome} max='100'>
+                    <div className='barraValor' style={{width: `${fome}%`, backgroundColor: retornaCor(fome)}}/>
+                </div>
             </div>
             <div className='barras'>
                 <SlEnergy size={19} className='Icon'/>
-                <progress style={{accentColor: retornaCor(energia)}} title={`Energia: ${energia}`} className='barra' value={energia} max='100'></progress>
+                <div title={`Energia: ${energia}`} className='barra' value={energia} max='100'>
+                    <div className='barraValor' style={{width: `${energia}%`, backgroundColor: retornaCor(energia)}}/>
+                </div>
             </div>
             <div className='barras'>
                 <FaGrin size={19} className='Icon'/>
-                <progress  style={{accentColor: retornaCor(alegria)}} title={`Felicidade: ${alegria}`} className='barra' value={alegria} max='100'></progress>
+                <div title={`Felicidade: ${alegria}`} className='barra' value={alegria} max='100'>
+                    <div className='barraValor' style={{width: `${alegria}%`, backgroundColor: retornaCor(alegria)}}/>
+                </div>
             </div>
         </div>
     );
