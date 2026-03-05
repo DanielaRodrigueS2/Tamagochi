@@ -18,6 +18,11 @@ Um projeto fullstack de Tamagotchi feito com **React**, **Node.js** e **MongoDB 
 - [React](https://reactjs.org/)
 - [Axios](https://axios-http.com/)
 - [Context API + Reducer] para gerenciamento de estado
+
+### Docker
+- [Docker] (https://hub.docker.com)
+- Utilização de containers para virtualização
+
   
 ---
 
