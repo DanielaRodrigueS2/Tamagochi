@@ -10,7 +10,7 @@ function MenuLateral(props){
 
     const getItens = async () =>{
         try{
-            const resposta = await fetch('http://localhost:3000/itens');
+            const resposta = await fetch('https://tamagochi-dvli.onrender.com/itens');
             
             if(!resposta.ok){
                 const erro = await resposta.json();

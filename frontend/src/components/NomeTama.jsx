@@ -10,7 +10,7 @@ function NomeTama(props){
         e.preventDefault();
         try{
             const token = localStorage.getItem('token');
-            const res = await fetch(`http://localhost:3000/tamagochi`, {
+            const res = await fetch(`https://tamagochi-dvli.onrender.com/tamagochi`, {
                 method: 'POST',
                 body: JSON.stringify(dadosTamagochi),
                 headers:{

@@ -29,7 +29,7 @@ function ResetPassword(){
         }
 
         try{
-            const resposta = await fetch(`http://localhost:3000/resetPassword/${id}/${token}`,{
+            const resposta = await fetch(`https://tamagochi-dvli.onrender.com/${id}/${token}`,{
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify(payload)

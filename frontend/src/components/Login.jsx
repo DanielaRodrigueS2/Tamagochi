@@ -24,7 +24,7 @@ function Login(props){
         }
         try{
 
-            const resposta = await fetch('http://localhost:3000/login', {
+            const resposta = await fetch('https://tamagochi-dvli.onrender.com/login', {
                 method: 'POST' ,
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(dadosUser)});

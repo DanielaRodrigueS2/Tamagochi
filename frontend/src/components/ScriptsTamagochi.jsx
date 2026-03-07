@@ -10,7 +10,7 @@ function ScriptsTamagochi({token}){
     // Função de update automatico
     const updateTamagochi = async () =>{
         try{
-            const resposta = await fetch(`http://localhost:3000/tamagochi`,{
+            const resposta = await fetch(`https://tamagochi-dvli.onrender.com/tamagochi`,{
                 method: 'PUT',
                 headers:{
                     'Content-Type' : 'application/json',

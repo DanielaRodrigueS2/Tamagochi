@@ -61,7 +61,7 @@ function Home(){
             const tokenSalvo = localStorage.getItem('token');
             if(tokenSalvo){
                 try{
-                    const res = await fetch('http://localhost:3000/validate',{
+                    const res = await fetch('https://tamagochi-dvli.onrender.com/validate',{
                     headers:{Authorization: `Bearer ${tokenSalvo}`}
                 })
             
