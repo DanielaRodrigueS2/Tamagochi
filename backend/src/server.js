@@ -5,7 +5,7 @@ const app = require('./app');
 mongoose.connect(process.env.MONGO_URI,)
 .then(() =>{
     console.log('Conexão com MongoBd foi feita :3');
-    app.listen(3000, () => {
+    app.listen(process.env.PORT || 3000, () => {
         console.log('Servidor foi ligado na porta 3000')
     });
 })
