@@ -2,8 +2,18 @@ import "./Loja.css"
 
 function Loja(){
     return(
-        <div>
-            
+        <div className="Loja">
+            <header>
+
+            </header>
+
+            <main>
+
+            </main>
+
+            <footer>
+                
+            </footer>
         </div>
     )
 
