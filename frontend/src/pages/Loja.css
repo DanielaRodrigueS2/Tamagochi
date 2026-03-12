@@ -91,12 +91,11 @@
     position: relative;
 }
 
-.Loja .botao-voltar :hover{
+.Loja .botao-voltar:hover{
     background:  rgb(84, 130, 216);
-    top: 5px;
 }
 
-.Loja .botao-voltar :active{
+.Loja .botao-voltar:active{
     background: #548fa5;
     top: 5px;
 }
