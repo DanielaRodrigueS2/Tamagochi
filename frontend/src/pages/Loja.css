@@ -4,5 +4,86 @@
     display: flex;
     background-color: rgb(164, 219, 219);
     align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.Loja header{
+    display: flex;
+    height: 10%;
+    width: 85%;
+    background-color:rgb(159, 188, 240);
+    align-items: center;
+    border-radius: 20px;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+}
+
+.Loja .header-text{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 50%;
+}
+
+.Loja .dinheiro{
+    display: flex;
+    width: 15%;
+    height: 80%;
+    align-items: center;
+    justify-content: end;
+}
+
+.img-melancia{
+    display: flex;
+    width: 50%;
+    height: auto;
+    image-rendering: pixelated;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.Loja p{
+    font-size: large;
+}
+
+
+.Loja main{
+    display: flex;
+    height: 60%;
+    width: 85%;
+    background-color: rgb(159, 188, 240);
+    border-radius: 20px;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+}
+
+
+.Loja footer{
+    display: flex;
+    height: 10%;
+    width: 85%;
+    background-color: rgb(159, 188, 240);
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 20px;
+    align-items: center;
     justify-content: center;
+
+}
+
+.Loja .botao-voltar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 10%;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: rgb(84, 130, 216)
 }
