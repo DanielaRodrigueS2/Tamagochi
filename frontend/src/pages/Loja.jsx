@@ -31,7 +31,7 @@ function Loja(){
 
             <footer>
                 <img></img>
-                <button className="botao-voltar">Voltar</button>
+                <button type="button" className="botao-voltar">Voltar</button>
                 <img></img>
             </footer>
         </div>
