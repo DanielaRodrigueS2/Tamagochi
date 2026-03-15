@@ -45,13 +45,14 @@ exports.getTamagochiById = async (req, res) =>{
 
 exports.updateTamagochi = async (req, res) =>{
     const {nome, fome, energia, felicidade, sprite, cliques, dinheiro} = req.body;
+    console.log("Dinherio", dinheiro);
 
     try{
-        const tamagochiUpdate = await Tamagochi.findOneAndUpdate({responsavel: req.user.id}, {nome,fome,energia,felicidade,cliques,dinheiro, sprite}, {new: true});
+        const tamagochiUpdate = await Tamagochi.findOneAndUpdate({responsavel: req.user.id}, {nome,fome,energia,felicidade,cliques, dinheiro, sprite}, {new: true});
         if(!tamagochiUpdate){
             return res.status(404).json({erorr: 'Tamagochi não encontrado'})
         }
-        res.json(tamagochiUpdate)
+        res.json(tamagochiUpdate);
     }
     catch(error){
         res.status(500).json({error: 'Erro ao atualizar as informações do tamagochi'})

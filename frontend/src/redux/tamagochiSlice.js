@@ -63,7 +63,6 @@ const tamagochiSlice = createSlice({
             state.felicidade = Math.max(0, (state.felicidade -1));
         },
         alterarDinheiro: (state, actions) =>{
-            
             if(actions.payload.dinheiro < 0){
                 state.dinheiro = Math.max(0, (state.dinheiro + actions.payload.dinheiro));
             }

@@ -13,6 +13,7 @@ function MenuConfig(props){
     }
 
     const updateTamagochi = async () =>{
+        
         try{
             const resposta = await fetch(`https://tamagochi-dvli.onrender.com/tamagochi`,{
                 method: 'PUT',
@@ -23,6 +24,7 @@ function MenuConfig(props){
                 body: JSON.stringify(tamagochi)});
 
             const data = await resposta.json();
+            console.log(data);
             console.log(resposta);
             console.log('Salvo com sucesso');
 
