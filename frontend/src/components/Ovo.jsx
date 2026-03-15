@@ -2,7 +2,7 @@ import './Ovo.css'
 import { useDroppable } from '@dnd-kit/core';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
-import { usarItem, alterarSprite, incrementar } from '../redux/tamagochiSlice';
+import { usarItem, alterarSprite, incrementar, alterarDinheiro } from '../redux/tamagochiSlice';
 
 function Ovo(props){
 
@@ -12,6 +12,9 @@ function Ovo(props){
 
     const verificaCliques = () =>{
         dispatch(incrementar());
+        dispatch(alterarDinheiro({
+            dinheiro: 1
+        }))
         console.log(cliques);
         if (cliques >= 25 && sprite == 'Ovo_normal.gif'){
 

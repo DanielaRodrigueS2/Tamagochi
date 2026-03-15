@@ -1,12 +1,15 @@
 import './MenuLateral.css'
 import MenuLateralSwiper from './MenuLateralSwiper'
 import { useState, useEffect} from 'react'
+import { useSelector } from 'react-redux';
 
 
 function MenuLateral(props){
 
     const [itens, setItens] = useState(null);
     const [dadosSwiper, setDadosSwiper] = useState([]);
+
+    const dinheiro = useSelector(state => state.tamagochi.dinheiro);
 
     const getItens = async () =>{
         try{
@@ -90,7 +93,8 @@ function MenuLateral(props){
                 <MenuLateralSwiper itens={dadosSwiper} className="MenuLateralSwipper2"></MenuLateralSwiper>
             </div>
             <div className='Rodape'>
-
+                <img src="extras/melancia.gif" className="img-lateral"></img>
+                <p>{dinheiro}</p>
             </div>
         </div>
 

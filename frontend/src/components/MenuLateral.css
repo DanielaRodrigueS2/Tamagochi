@@ -46,6 +46,17 @@
     border-radius: 20px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-lateral{
+    display: flex;
+    width: 30%;
+    height: auto;
+    image-rendering: pixelated;
+    position: relative;
+    transition: all 0.2s ease;
 }
 
 .MenuLateralSwipper2{
