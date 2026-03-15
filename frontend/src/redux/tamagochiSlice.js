@@ -7,6 +7,7 @@ const initialState = {
     energia: 50,
     felicidade: 50,
     cliques: 0,
+    dinheiro: 0,
     sprite: 'Ovo_normal.gif'
 }
 
@@ -43,13 +44,14 @@ const tamagochiSlice = createSlice({
             Object.assign(state, initialState);
         },
         carregarTamagochi: (state, actions) =>{
-            const {nome, fome, energia, felicidade, cliques, sprite} = actions.payload;
+            const {nome, fome, energia, felicidade, cliques, sprite, dinheiro} = actions.payload;
 
             state.nome = nome;
             state.fome = fome;
             state.energia = energia;
             state.felicidade = felicidade;
             state.cliques = cliques;
+            state.dinheiro = dinheiro
             state.sprite = sprite;
 
         },
@@ -59,11 +61,18 @@ const tamagochiSlice = createSlice({
         reducaoAutmatica: (state) =>{
             state.fome = Math.max(0, (state.fome -1));
             state.felicidade = Math.max(0, (state.felicidade -1));
+        },
+        alterarDinheiro: (state, actions) =>{
+
+            if(actions.payload.dinheiro < 0){
+                state.dinheiro = Math.max(0, (state.dinheiro + actions.payload.dinheiro));
+            }
+            else state.dinheiro = state.dinheiro + actions.payload.dinheiro;
         }
 
     }
 });
 
-export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi, reducaoAutmatica} = tamagochiSlice.actions;
+export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi, reducaoAutmatica, alterarDinheiro} = tamagochiSlice.actions;
 export default tamagochiSlice.reducer;
 
