@@ -53,11 +53,30 @@
     display: flex;
     height: 60%;
     width: 85%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     background-color: rgb(159, 188, 240);
     border-radius: 20px;
     border-width: 3px;
     border-color: black;
     border-style: solid;
+}
+
+.Loja .categorias{
+    display: flex;
+    height: 10%;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Loja .main-itens{
+    display: flex;
+    height: 80%;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 

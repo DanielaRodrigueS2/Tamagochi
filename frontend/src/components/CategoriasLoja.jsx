@@ -2,9 +2,9 @@ import './CategoriasLoja.css'
 
 const CategoriasLoja = (props) => {
         return(
-            <div className="categoriasLoja">
-                <Text className="textCategoriasLoja">{props.nomeCategoria}</Text>
-            </div>
+            <button className="categoriasLoja">
+                <a className="textCategoriasLoja">{props.nomeCategoria}</a>
+            </button>
         )
 
 }

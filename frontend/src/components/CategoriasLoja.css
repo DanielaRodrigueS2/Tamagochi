@@ -9,3 +9,8 @@
     border-radius: 10px;
     background-color: rgb(164, 219, 219);
 }
+
+.categoriasLoja :hover{
+    background-color: rgb(159, 188, 240);
+    cursor: pointer;
+}

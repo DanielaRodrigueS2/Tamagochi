@@ -1,9 +1,13 @@
 import "./Loja.css"
 import { useState } from "react"
+import CategoriasLoja from "../components/CategoriasLoja"
+import { useSelector, useDispatch } from "react-redux"
 
 function Loja(){
 
     const [valor, setValor] = useState(0)
+    const dispatch = useDispatch();
+    const dinheiro = useSelector(state => state.tamagochi.dinheiro);
 
     return(
         <div className="Loja">
@@ -21,9 +25,9 @@ function Loja(){
 
             <main>
                 <div className="categorias">
-                    <div>
-
-                    </div>
+                    <CategoriasLoja nomeCategoria="Roupas" />
+                    <CategoriasLoja nomeCategoria="Brinquedos" />
+                    <CategoriasLoja nomeCategoria="Comida" />
                 </div>
 
                 <div className="main-itens"></div>
