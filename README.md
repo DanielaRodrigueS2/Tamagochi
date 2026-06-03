@@ -84,7 +84,7 @@ MongoDB Atlas
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/tamagochi.git
+git clone https://github.com/DanielaRodrigues2/tamagochi.git
 cd tamagochi
 ```
 
