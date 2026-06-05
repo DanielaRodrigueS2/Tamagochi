@@ -4,10 +4,12 @@ import Item from "../components/Item"
 import CategoriasLoja from "../components/CategoriasLoja"
 import MenuLateralSwiper from "../components/MenuLateralSwiper"
 import { useSelector, useDispatch } from "react-redux"
+import {useNavigate} from 'react-router-dom'
 
 function Loja(){
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const dinheiro = useSelector(state => state.tamagochi.dinheiro);
     const itens = localStorage.getItem('itens');
     const [itensAtivos, setItensAtivos] = useState([]);
@@ -63,7 +65,7 @@ function Loja(){
 
             <footer>
                 <img></img>
-                <button type="button" className="botao-voltar">Voltar</button>
+                <button type="button" className="botao-voltar" onClick={() => navigate('/')}>Voltar</button>
                 <img></img>
             </footer>
         </div>
