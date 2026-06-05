@@ -11,7 +11,7 @@ function Loja(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const dinheiro = useSelector(state => state.tamagochi.dinheiro);
-    const itens = localStorage.getItem('itens');
+    const itens = JSON.parse(localStorage.getItem('itens'));
     const [itensAtivos, setItensAtivos] = useState([]);
     const [tipo, setTipo] = useState(0);
 
