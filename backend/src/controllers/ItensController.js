@@ -1,10 +1,10 @@
 const Itens = require('../models/ItensModel');
 
 exports.createItem = async (req, res) =>{
-    const {nome, tipo, energia, felicidade, fome, sprite} = req.body;
+    const {nome, tipo, energia, felicidade, fome, sprite, preco} = req.body;
 
     try{
-        const item = new Itens({nome,tipo, energia, felicidade, fome, sprite});
+        const item = new Itens({nome,tipo, energia, felicidade, fome, sprite, preco});
         const itemCriado = await item.save();
         res.status(201).json(itemCriado)
 

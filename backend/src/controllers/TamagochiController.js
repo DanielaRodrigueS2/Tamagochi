@@ -2,11 +2,11 @@ const Tamagochi = require('../models/TamagochiModel');
 const User = require('../models/UserModel');
 
 exports.createTamagochi = async (req,res) =>{
-    const {nome, fome, energia, felicidade, sprite, cliques, dinheiro} = req.body;
+    const {nome, fome, energia, felicidade, sprite, cliques, dinheiro, inventario} = req.body;
     const userId = req.user.id;
 
     try{
-        const tamagochi = new Tamagochi({nome, fome, energia, felicidade, sprite, cliques, dinheiro, responsavel: userId});
+        const tamagochi = new Tamagochi({nome, fome, energia, felicidade, sprite, cliques, dinheiro, inventario, responsavel: userId});
         const tamagochiCriado = await tamagochi.save();
 
         await User.findByIdAndUpdate(userId, {tamagochi: tamagochiCriado._id});
@@ -44,7 +44,7 @@ exports.getTamagochiById = async (req, res) =>{
 }
 
 exports.updateTamagochi = async (req, res) =>{
-    const {nome, fome, energia, felicidade, sprite, cliques, dinheiro} = req.body;
+    const {nome, fome, energia, felicidade, sprite, cliques, inventario, dinheiro} = req.body;
     console.log("Dinherio", dinheiro);
 
     try{

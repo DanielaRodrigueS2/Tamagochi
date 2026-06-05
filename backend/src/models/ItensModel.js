@@ -6,6 +6,7 @@ const itensData = new mongoose.Schema({
     energia: {type: Number, default: 0},
     felicidade: {type: Number, default: 0},
     fome: {type: Number, default: 0},
+    preco: {type: Number, default: 0},
     sprite: {type: String, default: 'path'},
 });
 
