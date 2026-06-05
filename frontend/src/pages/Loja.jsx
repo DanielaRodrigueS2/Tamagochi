@@ -25,6 +25,7 @@ function Loja(){
     }
 
     useEffect(() => {
+        console.log('ItensLoja', itens);
         if ( !itens ) return;
 
         listaTemporaria(tipo)
