@@ -9,7 +9,7 @@ const tamagochiData = new mongoose.Schema({
     sprite: {type: String, default: 'Ovo_normal.gif'},
     cliques: {type: Number, default: 0},
     dinheiro: {type: Number, default: 0},
-    inventario: [{item : {type: moongoose.Schema.Types.ObjectId, ref: 'Itens'}, quantidade: {type: Number, default: 0}}],
+    inventario: [{item : {type: mongoose.Schema.Types.ObjectId, ref: 'Itens'}, quantidade: {type: Number, default: 0}}],
     responsavel: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
