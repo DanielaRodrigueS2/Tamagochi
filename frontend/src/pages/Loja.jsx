@@ -2,12 +2,11 @@ import "./Loja.css"
 import { useState, useEffect } from "react"
 import Item from "../components/Item"
 import CategoriasLoja from "../components/CategoriasLoja"
-import MenuLaeralSwipper from "../components/MenuLateralSwiper"
+import MenuLateralSwiper from "../components/MenuLateralSwiper"
 import { useSelector, useDispatch } from "react-redux"
 
 function Loja(){
 
-    const [valor, setValor] = useState(0)
     const dispatch = useDispatch();
     const dinheiro = useSelector(state => state.tamagochi.dinheiro);
     const itens = localStorage.getItem('itens');
@@ -27,10 +26,14 @@ function Loja(){
         if ( !itens ) return;
 
         listaTemporaria(tipo)
+        console.log(listaTemporaria);
 
     }, [tipo])
 
-    const alteraTipo = (tipo) => setTipo(tipo);
+    const alteraTipo = (tipo) => {
+        setTipo(tipo);
+        console.log(tipo);
+    };
 
     return(
         <div className="Loja">
@@ -42,7 +45,7 @@ function Loja(){
 
                 <div className="dinheiro">
                     <img src="extras/melancia.gif" className="img-melancia"></img>
-                    <p>{valor}</p>
+                    <p>{dinheiro}</p>
                 </div>
             </header>   
 
@@ -54,7 +57,7 @@ function Loja(){
                 </div>
 
                 <div className="main-itens">
-                    <MenuLaeralSwipper itens={itensAtivos}/>
+                    <MenuLateralSwiper itens={itensAtivos}/>
                 </div>
             </main>
 

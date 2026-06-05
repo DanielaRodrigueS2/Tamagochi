@@ -7,10 +7,17 @@
     height: 80%;
     border: 2px solid black;
     border-radius: 10px;
+    position: relative;
     background-color: rgb(164, 219, 219);
+    transition: all 0.2s ease 
 }
 
-.categoriasLoja :hover{
-    background-color: rgb(159, 188, 240);
+.categoriasLoja:hover{
+    background-color: rgb(158, 173, 199);
     cursor: pointer;
+}
+
+.categoriasLoja:active{
+    background-color: rgb(158, 173, 199);
+    top: 5px;
 }
