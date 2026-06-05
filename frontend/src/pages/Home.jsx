@@ -8,9 +8,10 @@ import Registro from '../components/Registro'
 import MenuConfig from '../components/MenuConfig';
 import ScriptsTamagochi from '../components/ScriptsTamagochi';
 
-import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun, FaGithub, FaLinkedin} from 'react-icons/fa';
+import { FaEgg, FaHamburger, FaFutbol, FaBath, FaBed, FaGamepad, FaRegSun, FaGithub, FaLinkedin, FaShoppingBag} from 'react-icons/fa';
 import { useRef, useEffect, useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
+import {useNavigate} from 'react-router-dom'
 
 function Home(){
 
@@ -22,6 +23,8 @@ function Home(){
     const [user, setUser] = useState(null);
     const [isDropped, setIsDropped] = useState(false);
     const [ultimoItem, setUltimoItem] = useState(null)
+
+    const navigate = useNavigate();
 
     const audioRef = useRef(null);
 
@@ -96,6 +99,7 @@ function Home(){
                 <Botao Icon={FaRegSun} className='botaoConfiguracoes' onClick={() => setMenuConfig(true)}></Botao>
                 <a href="https://github.com/DanielaRodrigueS2" target='_blank' rel="noopener noreferrer"> <Botao Icon={FaGithub} className='botaoGitHub'></Botao></a>
                 <a href="https://www.linkedin.com/in/daniela-rodrigues-2b956b295/" target='_blank' rel="noopener noreferrer"> <Botao Icon={FaLinkedin} className='botaoLinkedin'></Botao></a>
+                <Botao Icon={FaShoppingBag} className='botaoLoja' onClick={() => navigate('/Loja')}/>
             </header>
 
             <div className='menusTamagochi'>
