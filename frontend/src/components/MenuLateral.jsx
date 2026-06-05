@@ -22,6 +22,7 @@ function MenuLateral(props){
             }
 
             const dados = await resposta.json();
+            localStorage.setItem('itens', dados)
             setItens(dados);
         }
         catch(erro){
