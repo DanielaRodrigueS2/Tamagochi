@@ -8,6 +8,7 @@ const initialState = {
     felicidade: 50,
     cliques: 0,
     dinheiro: 0,
+    inventario: [],
     sprite: 'Ovo_normal.gif'
 }
 
@@ -33,6 +34,8 @@ const tamagochiSlice = createSlice({
             else state.felicidade = Math.min(100, (state.felicidade + actions.payload.felicidade));
 
             state.cliques +=1;
+            itemUsado = state.inventario.find(item => item.item_id === actions.payload._id);
+            itemUsado.quantidade -= 1;
         },
         alterarNome: (state, actions) =>{
             state.nome = actions.payload;
@@ -44,14 +47,15 @@ const tamagochiSlice = createSlice({
             Object.assign(state, initialState);
         },
         carregarTamagochi: (state, actions) =>{
-            const {nome, fome, energia, felicidade, cliques, sprite, dinheiro} = actions.payload;
+            const {nome, fome, energia, felicidade, cliques, sprite, dinheiro, inventario} = actions.payload;
 
             state.nome = nome;
             state.fome = fome;
             state.energia = energia;
             state.felicidade = felicidade;
             state.cliques = cliques;
-            state.dinheiro = dinheiro
+            state.dinheiro = dinheiro;
+            state.inventario = inventario;
             state.sprite = sprite;
 
         },
@@ -67,11 +71,20 @@ const tamagochiSlice = createSlice({
                 state.dinheiro = Math.max(0, (state.dinheiro + actions.payload.dinheiro));
             }
             else state.dinheiro = state.dinheiro + actions.payload.dinheiro;
-        }
+        },
+        comprarItem: (state, actions) =>{
+            if(state.dinheiro >= actions.payload.preco){ 
+                state.dinheiro = state.dinheiro - actions.payload.preco;
+                const itemExistente =  state.inventario.find(item => item.item._id === actions.payload._id);
+                if(itemExistente) itemExistente.quantidade += 1;
+                else state.inventario.push({item: actions.payload, quantidade: 1});        
+            }
+
+        },
 
     }
 });
 
-export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi, reducaoAutmatica, alterarDinheiro} = tamagochiSlice.actions;
+export const {usarItem, alterarSprite, redefinir, incrementar, carregarTamagochi, reducaoAutmatica, alterarDinheiro, comprarItem} = tamagochiSlice.actions;
 export default tamagochiSlice.reducer;
 
