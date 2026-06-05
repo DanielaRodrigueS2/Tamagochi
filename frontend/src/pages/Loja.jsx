@@ -17,7 +17,7 @@ function Loja(){
 
     const listaTemporaria = async (tipo) =>{
         let lista = [];
-        for (let i = 0; i <= itens.lenght; i++){
+        for (let i = 0; i < itens.length; i++){
             if(itens[i].tipo === tipo) lista.push(itens[i])
         }
 
