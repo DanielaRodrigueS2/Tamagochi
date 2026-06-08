@@ -39,13 +39,14 @@ function Loja(){
         console.log(tipo);
     };
 
-    const comprarItem = (item) =>{
+    const comprarItemF = (item) =>{
+        console.log('Item compra:' , item)
         if(dinheiro >= item.preco){
-            dispatch({
+            dispatch(comprarItem({
                 preco: item.preco,
                 quantidade: 1,
                 _id: item._id
-            })
+            }))
             console.log('Item comprado com sucesso');
         }
     }
@@ -72,7 +73,7 @@ function Loja(){
                 </div>
 
                 <div className="main-itens">
-                    <MenuItensLoja itens={itensAtivos} comprarItem={comprarItem}/>
+                    <MenuItensLoja itens={itensAtivos} comprarItem={comprarItemF}/>
                 </div>
             </main>
 

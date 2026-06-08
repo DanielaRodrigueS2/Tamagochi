@@ -34,7 +34,7 @@ const tamagochiSlice = createSlice({
             else state.felicidade = Math.min(100, (state.felicidade + actions.payload.felicidade));
 
             state.cliques +=1;
-            itemUsado = state.inventario.find(item => item.item_id === actions.payload._id);
+            const itemUsado = state.inventario.find(item => item.item._id === actions.payload._id);
             itemUsado.quantidade -= 1;
         },
         alterarNome: (state, actions) =>{
