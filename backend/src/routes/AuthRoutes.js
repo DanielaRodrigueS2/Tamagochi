@@ -11,7 +11,7 @@ router.post('/register', [
 ], AuthController.register)
 
 router.post('/login', AuthController.login);
-router.get('/validade', auth, AuthController.validate);
+router.get('/validate', auth, AuthController.validate);
 router.post('/resetPasswordRequest', AuthController.resetPasswordRequest);
 router.post('/resetPassword/:id/:token', AuthController.resetPassword);
 
