@@ -4,6 +4,7 @@ import Item from "../components/Item"
 import CategoriasLoja from "../components/CategoriasLoja"
 import MenuLateralSwiper from "../components/MenuLateralSwiper"
 import { useSelector, useDispatch } from "react-redux"
+import {alterarDinheiro, comprarItem} from '../redux/tamagochiSlice'
 import {useNavigate} from 'react-router-dom'
 
 function Loja(){
@@ -38,6 +39,16 @@ function Loja(){
         console.log(tipo);
     };
 
+    const comprarItem = (item) =>{
+        if(dinheiro >= item.preco){
+            dispatch({
+                preco: item.preco,
+                quantidade: 1,
+                _id: item._id
+            })
+        }
+    }
+
     return(
         <div className="Loja">
 
@@ -60,7 +71,7 @@ function Loja(){
                 </div>
 
                 <div className="main-itens">
-                    <MenuLateralSwiper itens={itensAtivos}/>
+                    <MenuLateralSwiper itens={itensAtivos} comprarItem={comprarItem}/>
                 </div>
             </main>
 

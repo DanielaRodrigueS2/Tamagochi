@@ -10,6 +10,7 @@ function MenuLateral(props){
     const [dadosSwiper, setDadosSwiper] = useState([]);
 
     const dinheiro = useSelector(state => state.tamagochi.dinheiro);
+    const inventario = useSelector(state => state.tamagochi.inventario);
 
     const getItens = async () =>{
         try{
