@@ -62,13 +62,21 @@ function Home(){
         const validarToken = async () => {
 
             const tokenSalvo = localStorage.getItem('token');
+            console.log('TOKEN LOCALSTORAGE:', tokenSalvo);
+        
             if(tokenSalvo){
                 try{
                     const res = await fetch('https://tamagochi-dvli.onrender.com/validate',{
                     headers:{Authorization: `Bearer ${tokenSalvo}`}
                 })
+
+                if(res.status === 401){
+                    localStorage.removeItem('token');
+                    setMenuLogin(true);
+                    return;
+                }
             
-                if(!res.ok) throw new Error("Token inválido");
+                if(!res.ok) throw new Error("Erro do server");
 
                 const data = await res.json();
 
@@ -78,6 +86,7 @@ function Home(){
 
                 }
                 catch(error){
+                    console.log('ERRO VALIDAÇÃO:', error);
                     console.log(error);
                     localStorage.removeItem('token');
                     setMenuLogin(true)
