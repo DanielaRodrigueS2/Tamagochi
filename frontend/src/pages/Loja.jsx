@@ -2,7 +2,7 @@ import "./Loja.css"
 import { useState, useEffect } from "react"
 import Item from "../components/Item"
 import CategoriasLoja from "../components/CategoriasLoja"
-import MenuLateralSwiper from "../components/MenuLateralSwiper"
+import MenuItensLoja from "../components/MenuItensLoja"
 import { useSelector, useDispatch } from "react-redux"
 import {alterarDinheiro, comprarItem} from '../redux/tamagochiSlice'
 import {useNavigate} from 'react-router-dom'
@@ -71,7 +71,7 @@ function Loja(){
                 </div>
 
                 <div className="main-itens">
-                    <MenuLateralSwiper itens={itensAtivos} comprarItem={comprarItem}/>
+                    <MenuItensLoja itens={itensAtivos} comprarItem={comprarItem}/>
                 </div>
             </main>
 

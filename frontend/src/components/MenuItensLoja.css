@@ -1,0 +1,21 @@
+.MenuItens{
+    display:flex;
+    width: 90%;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.MenuItens .Itens{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px
+}
+
+.MenuItens .Item{
+    width: 50px;
+    height: auto;
+}
