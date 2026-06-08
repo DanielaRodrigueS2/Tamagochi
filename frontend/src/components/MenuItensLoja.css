@@ -19,3 +19,11 @@
     width: 50px;
     height: auto;
 }
+
+.MenuItens .Item:hover{
+    cursor: pointer;
+}
+
+.MenuItens .Item:active{
+    top: 2px
+}

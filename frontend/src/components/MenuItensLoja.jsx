@@ -8,11 +8,12 @@ const MenuItensLoja = (props) =>{
     return(
         <div className="MenuItens">
             <div className="Itens">
-                {item.map((item) =>(
+                {itens.map((item) =>(
                     <img
                         src={`/Itens/${item.tipo}/${item.sprite}`}
                         onClick={props.comprarItem(item)}
                         className="Item"
+                        key={item._id}
                     />
                 ))}
 

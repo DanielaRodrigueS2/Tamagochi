@@ -46,6 +46,7 @@ function Loja(){
                 quantidade: 1,
                 _id: item._id
             })
+            console.log('Item comprado com sucesso');
         }
     }
 
