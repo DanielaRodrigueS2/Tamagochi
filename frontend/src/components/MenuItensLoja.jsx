@@ -11,7 +11,7 @@ const MenuItensLoja = (props) =>{
                 {itens.map((item) =>(
                     <img
                         src={`/Itens/${item.tipo}/${item.sprite}`}
-                        onClick={props.comprarItem(item)}
+                        onClick={() => props.comprarItem(item)}
                         className="Item"
                         key={item._id}
                     />

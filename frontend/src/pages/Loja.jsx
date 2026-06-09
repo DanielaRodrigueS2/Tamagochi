@@ -49,7 +49,7 @@ function Loja(){
             }))
             console.log('Item comprado com sucesso');
         }
-    }
+    };
 
     return(
         <div className="Loja">

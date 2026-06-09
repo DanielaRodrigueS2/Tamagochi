@@ -10,14 +10,16 @@
 .MenuItens .Itens{
     height: 100px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 5px
+    padding: 10px
 }
 
 .MenuItens .Item{
-    width: 50px;
+    width: 60px;
     height: auto;
+    margin: 10px;
+    padding: 10px;
 }
 
 .MenuItens .Item:hover{
